@@ -35,8 +35,8 @@ Il quadro generale è buono: le basi per dormire sono scelte bene, il percorso n
 | 16/08 | Røldal Overnatting | Røldal | Trasferimento: Vøringsfossen, sidro, Låtefossen |
 | 17/08 | Røldal Overnatting | Røldal | **Trolltunga** |
 | 18/08 | Røldal Overnatting | Røldal | Hardangervidda / Haukeliseter |
-| 19/08 | Kongsgata Apartments | Stavanger | Trasferimento + **Preikestolen** |
-| 20/08 | Kongsgata Apartments | Stavanger | **Kjerag** |
+| 19/08 | Pulpit Rock Hostel Vaulali | Hjelmeland / Tau | Trasferimento + **Skomakarnibbå** |
+| 20/08 | Pulpit Rock Hostel Vaulali | Ryfylke | **Preikestolen** + recupero |
 | 21/08 | Bergen Camping Park | Bergen | Trasferimento + Bryggen |
 | 22/08 | Bergen Camping Park | Bergen | **Traversata del Vidden** |
 | 23/08 | — | — | Volo da Flesland |
@@ -66,15 +66,15 @@ VOSSESTRAND ························ 1 notte  ── AUR
 KVAMSKOGEN ························· 2 notti  ── FOLGEFONNA ovest
     │  3h — Hardangerbrua, Eidfjord, Rv13 Kinsarvik-Odda
 RØLDAL ····························· 3 notti  ── TROLLTUNGA / HARDANGERVIDDA
-    │  3h30 — Rv520 Sauda + Rv13 Suldal + ⛴ Nesvik-Hjelmeland
-STAVANGER ·························· 2 notti  ── PREIKESTOLEN / KJERAG
-    │  4h30 — E39 + ⛴ Mortavika-Arsvågen + ⛴ Halhjem-Sandvikvåg
+    │  2h10 — Rv520 Sauda + Rv13 Suldal + ⛴ Nesvik-Hjelmeland
+HAGALID / VAULALI ··················· 2 notti  ── SKOMAKARNIBBÅ / PREIKESTOLEN
+    │  4h45-5h — collegamento verso Bergen, traghetto e pedaggi
 BERGEN ····························· 2 notti
     │  30 min
 ✈  BERGEN FLESLAND
 ```
 
-**Totale indicativo: circa 2.100 km e 32 ore di guida in 15 giorni**, più sei traghetti. Fa una media di poco più di due ore al giorno, che è ragionevole. Il problema non è il totale, è la distribuzione: tre giorni ne concentrano il doppio.
+**Totale indicativo dopo la revisione del 19-20: circa 1.850 km e 27 ore di guida in 15 giorni.** Il dato andrà consolidato insieme agli ultimi giorni di Bergen, ma la sostituzione di Kjerag con Skomakarnibbå elimina da sola oltre cinque ore di guida dal blocco finale.
 
 ---
 
@@ -180,7 +180,7 @@ Qui bisogna scegliere. Le due opzioni che avete trovato sono entrambe corrette m
 
 Fare Besseggen il 10 e Galdhøpiggen l'11 è teoricamente possibile per un gruppo allenato, ma sono due giornate da 7-8 ore consecutive, con quattro ore di guida da Oslo prima e una giornata pesantissima (il 12) subito dopo. E se piove su una delle due, salta tutto.
 
-**Proposta: Besseggen sì, Galdhøpiggen no.** Il Besseggen è più spettacolare, non richiede guida, e la logistica della barca lo incastra perfettamente con Bessheim. Galdhøpiggen è il punto più alto del Nord Europa, ma dopo Trolltunga, Kjerag e Preikestolen non aggiunge un paesaggio che non vedrete già.
+**Proposta: Besseggen sì, Galdhøpiggen no.** Il Besseggen è più spettacolare, non richiede guida, e la logistica della barca lo incastra perfettamente con Bessheim. Galdhøpiggen è il punto più alto del Nord Europa, ma dopo Trolltunga, Preikestolen e le altre grandi giornate di montagna non aggiunge un paesaggio che non vedrete già.
 
 *Se invece il gruppo vuole assolutamente la cima:* allora il Besseggen va fatto il 10 (partenza da Oslo alle 6:30, barca prenotata per le 12-13) e Galdhøpiggen l'11 da Spiterstulen con sveglia alle 5. È la variante ambiziosa. Sappiate che sceglierla significa arrivare al 12 agosto già stanchi, e il 12 è la giornata più incasinata del viaggio.
 
@@ -328,47 +328,53 @@ Il forno accanto al lodge, i cinnamon rolls, il Flesefossen e il passo del Bauta
 
 **In alternativa, se il meteo in quota è brutto:** **Buarbreen** da Odda, cinquanta minuti, quattro ore, fronte del ghiacciaio. Recupera il ghiacciaio che si perde tagliando Skåla e Briksdal il 12.
 
-**Gaustatoppen resta fuori.** Da Røldal sono tre ore piene per senso, cioè **sei ore di macchina** per una cima che, dopo Trolltunga, Kjerag e Preikestolen, non aggiunge un paesaggio nuovo. È la singola cosa più evitabile dell'intero viaggio.
+**Gaustatoppen resta fuori.** Da Røldal sono tre ore piene per senso, cioè **sei ore di macchina** per una cima che, dopo Trolltunga, Preikestolen e le altre grandi giornate di montagna, non aggiunge abbastanza da giustificare la trasferta. È la singola cosa più evitabile dell'intero viaggio.
 
 ---
 
-### Giorno 11 — mercoledì 19 agosto — RØLDAL → PREIKESTOLEN → STAVANGER
+### Giorno 11 — mercoledì 19 agosto — PROPOSTA: RØLDAL → SKOMAKARNIBBÅ → VAULALI
 
-**Base: Kongsgata Apartments, Stavanger. Guida: 3h30 + traghetto, poi 45 min.**
+**Base proposta: Pulpit Rock Hostel Vaulali, Tjøstheimvegen 571, Tau. Guida: circa 2h10 fino a Hagalid, poi 48 min fino all'ostello.**
 
-**Il problema.** Il programma originale ha su questa giornata: la riserva di Dyraheio, Stavanger, il bagno a Brusand, il bunker, Trollpikken e il faro di Lindesnes. Tre cose non tornano.
+**La proposta.** Skomakarnibbå sostituirebbe il blocco dispersivo Dyraheio–Stavanger–costa e diventerebbe l'esperienza principale della giornata. Uno dei partecipanti ci è già stato nove anni fa e la ricorda come un'escursione bella e isolata: è quindi una proposta con un motivo personale, non soltanto un'alternativa “meno pop”.
 
-- **Dyraheio non è una passeggiata.** La capanna DNT di Stranddalen sta in fondo alla Setesdal Vesthei e l'avvicinamento è di ore. Non ci sta in un giorno di trasferimento con check-in.
-- **Lindesnes è a 3h30 da Stavanger, in un senso.** Da solo è una giornata intera.
-- E soprattutto: il giorno dopo ci sono **Preikestolen e Kjerag insieme**, che è impossibile (vedi giorno 12).
+La traccia Wikiloc scelta è recente, registrata nel luglio 2026: **12,3 km, circa 590 m di salita e 5h27 complessive**. Per sette persone il tempo operativo corretto è **6-6h30**, pause comprese. È un'andata e ritorno; la parola “circolare” nella breve descrizione dell'autore è un errore.
 
-**La proposta, che risolve tutto in un colpo.** Preikestolen è **letteralmente sulla strada** tra Røldal e Stavanger. Quindi:
+**La giornata proposta:** partenza da Røldal verso le 7:00 → Rv520 per Sauda → Rv13 attraverso il Suldal → ⛴ Nesvik-Hjelmeland → parcheggio a pagamento di Hagalid → Skomakarnibbå indicativamente 9:30-16:00 → 48 minuti fino a Vaulali → check-in e cena preparata nella cucina comune.
 
-Røldal → **Rv520 per Sauda**, che è una strada di montagna splendida e gratuita → Rv13 attraverso il Suldal → ⛴ Nesvik-Hjelmeland → **Preikestolen** (8 km, 4 ore) → Ryfylketunnelen → check-in a Stavanger la sera.
+**Traghetto, dato verificato.** La tratta corretta è **Nesvik → Hjelmeland, linea 1054**. Mercoledì 19 agosto è un giorno feriale: in mattinata partono da Nesvik alle 7:00, 7:40, 8:00, 8:35, 9:00, 9:20 e 9:40; la traversata dura circa 13 minuti. Non serve prenotare. Per il pagamento la soluzione più semplice è verificare se il noleggio usa già AutoPASS; altrimenti si può associare temporaneamente targa e carta a FerryPay. Il prezzo dipende dalla lunghezza e dall'alimentazione del nove posti, quindi va calcolato appena si conoscono modello e targa del noleggio; non è una spesa da stimare a occhio. Fonti: [orari ufficiali Kolumbus/Norled](https://www.kolumbus.no/reise/rutetabeller/bat-og-ferje/ryfylke/), [orario aggiornato della linea 1054](https://havspor.no/en/rute/hjelmeland-nesvik-skipavik), [calcolatore ufficiale AutoPASS Ferje](https://autopassferje.no/en/prices/), [pagamento FerryPay](https://autopassferje.no/en/faq/).
 
-*Variante, se Langfossen vi manca:* E134 lungo l'Åkrafjorden con sosta alla cascata, poi Haugesund e la E39. Circa lo stesso tempo, ma si perde la Rv520 e Preikestolen slitta al pomeriggio inoltrato.
+Il sentiero attraversa anche terreno umido e torbiera. Servono scarpe adatte; non si deve tentare di uscire sulla sporgenza vera e propria, che è instabile e pericolosa.
 
-**Fuori:** Dyraheio, Lindesnes, Brusand, Trollpikken.
+**La sera resterebbe volutamente libera.** L'ostello è sul lago, con spiaggia privata e spazi comuni: può essere semplicemente il posto in cui recuperare. Stavanger non è un obiettivo e si deciderebbe sul momento, solo se orario ed energie lo rendono naturale.
+
+**Alloggio proposto:** due camere quadruple, due bagni privati, cucina condivisa, parcheggio gratuito e check-in 16:00-21:00. Il sovrapprezzo è di circa 26 euro a persona per due notti; Kongsgata Apartments può essere cancellato senza costi.
 
 ---
 
-### Giorno 12 — giovedì 20 agosto — KJERAG
+### Giorno 12 — giovedì 20 agosto — PROPOSTA: PREIKESTOLEN + RECUPERO
 
-**Base: Stavanger. Guida: 2h45 per senso.**
+**Base proposta: Pulpit Rock Hostel Vaulali. Guida: circa 32 min per senso.**
 
-**Il problema.** **Preikestolen e Kjeragbolten nello stesso giorno non si fanno.** Preikestolen è 8 km e circa 4 ore; Kjerag è una dozzina di chilometri e 6-7 ore con tre saliscendi ripidi in catena, e Øygardstøl sta a quasi tre ore da Stavanger via Sirdal e i tornanti della Lysevegen. Sono due giornate piene, non due mezze giornate. Con lo spostamento di Preikestolen al 19, il problema sparisce.
+**Cosa funzionerebbe.** Vaulali è una base molto più coerente di Ålgård per questa giornata: il parcheggio del Preikestolen è a mezz'ora, quindi si può partire molto presto e rientrare per pranzo.
 
-**La giornata.** Partenza all'alba. E sulla Rv45, **venti minuti di deviazione per il Månafossen** e il Frafjordheiane: così la riserva che avevate in programma ci entra davvero, con una cascata da 92 metri e venti minuti di salita.
+**La giornata proposta.** Partenza dall'ostello alle **5:30**, arrivo al parcheggio intorno alle 6:00 e ingresso sul sentiero poco dopo: è una scelta voluta per camminare nelle ore più tranquille. Il percorso è **8 km andata e ritorno, circa 500 m di dislivello e 4 ore**. Con pause e fotografie, prevedere 4-4h30. Rientro a Vaulali fra le **10:30 e le 11:30**.
 
-**La passeggiata serale a Stavanger: dimenticatela.** Si torna verso le otto, distrutti. Stavanger si fa il 19 sera al check-in, o la mattina del 21 prima di partire.
+Il resto della giornata non andrebbe riempito per forza: pranzo, lago, spiaggia privata, spazi comuni e recupero. Un'eventuale uscita verso Stavanger si deciderebbe sul momento e non farebbe parte del programma da rispettare.
+
+**Asterisco meteo.** “Nuvoloso” non basta per annullare Preikestolen. Il vero discrimine è la presenza di **nebbia o nubi basse sul Lysefjord**, visibilità nulla, pioggia persistente o vento problematico. Cielo coperto con nubi alte può comunque essere scenografico.
+
+**Alternativa da discutere: Kjerag.** A favore: è un grande trekking norvegese, più impegnativo e meno affollato di Preikestolen; Kjeragbolten è un'esperienza molto particolare. Contro: da Vaulali richiede circa 2h40 di guida per senso più 6-8 ore di trekking, togliendo elasticità alle due giornate. Non è neppure un buon piano B meteo: è più alto, esposto e scivoloso, quindi se Preikestolen salta per maltempo diffuso è probabile che Kjerag sia uguale o peggiore. Per questo la mia proposta è **non inserirlo nel piano base**, senza però archiviarlo come idea.
+
+**Task aperto:** chiedere direttamente all'ostello quali alternative locali consigliano per pioggia, nubi basse o stanchezza e costruire un piccolo elenco di piani B realmente vicini.
 
 ---
 
 ### Giorni 13-14 — venerdì 21 e sabato 22 agosto — BERGEN
 
-**Base: Bergen Camping Park (Åsane, a nord del centro). Guida: 4h30-5h il 21.**
+**Base: Bergen Camping Park (Åsane, a nord del centro). Guida: circa 4h45-5h da Vaulali il 21.**
 
-**Il problema.** Stavanger → Bergen sulla E39 significa **due traghetti** (Mortavika-Arsvågen e Halhjem-Sandvikvåg) e quattro ore e mezza-cinque con le code di agosto. Non si prenotano, ma si fa la fila. **Il giorno 13 è in realtà un trasferimento più un pomeriggio: Bergen è un giorno e mezzo, non due.**
+**Il problema.** Vaulali → Bergen richiede comunque circa cinque ore fra guida, traghetto, pedaggi e possibili attese. **Il giorno 13 è in realtà un trasferimento più un pomeriggio: Bergen è un giorno e mezzo, non due.**
 
 Quindi: il 21 pomeriggio Bryggen, il mercato del pesce, il Kode-Rasmus Meyer per chi vuole, e la sera all'Alltid Opplett per il mini-golf e le freccette, e all'Hellion per il metal.
 
@@ -389,8 +395,9 @@ Quindi: il 21 pomeriggio Bryggen, il mercato del pesce, il Kode-Rasmus Meyer per
 | **Gaustatoppen (18/08)** | **6 ore di macchina in giornata da Røldal** |
 | Dyraheio / Stranddalen (19/08) | Non è una passeggiata: avvicinamento di ore |
 | Faro di Lindesnes (19/08) | 3h30 per senso da Stavanger |
-| Trollpikken e Brusand (19/08) | Incompatibili con Preikestolen lo stesso giorno |
-| Langfossen (16/08) | 2h30 a/r dopo dieci ore di Trolltunga. Recuperabile il 19 con la variante E134 |
+| Trollpikken e Brusand (19/08) | Fuori rotta e incompatibili con Skomakarnibbå nello stesso giorno |
+| Kjerag (20/08) | Oltre 5h di guida da Vaulali; sostituito da Skomakarnibbå e non adatto come piano B meteo |
+| Langfossen (16/08) | 2h30 a/r dopo dieci ore di Trolltunga; non viene recuperato il 19 perché la giornata è dedicata a Skomakarnibbå |
 
 **Guadagno netto: circa dodici ore di macchina in meno**, redistribuite su cammini.
 
@@ -398,13 +405,13 @@ Quindi: il 21 pomeriggio Bryggen, il mercato del pesce, il Kode-Rasmus Meyer per
 
 ## 7. Note pratiche
 
-**Il veicolo.** Sette persone significa un nove posti. Conta su due fronti: sui traghetti la tariffa dipende dalla lunghezza del mezzo (il Geiranger-Hellesylt e i due della E39 non sono economici), e su certe strade — la Lysevegen verso Kjerag, la sterrata del Kjenndalsbreen, la Stalheimskleiva — si va molto piano.
+**Il veicolo.** Sette persone significa un nove posti. Conta su due fronti: sui traghetti la tariffa dipende dalla lunghezza del mezzo (il Geiranger-Hellesylt e i due della E39 non sono economici), e su certe strade — la sterrata del Kjenndalsbreen e la Stalheimskleiva — si va molto piano.
 
-**Pedaggi.** La Norvegia ha AutoPASS: i portali leggono la targa e il noleggio ve li riaddebita dopo, con una commissione per pratica. Mettete in conto qualche decina di euro a fine viaggio, e non stupitevi della fattura che arriva a settembre. Alcune strade di montagna hanno pedaggi propri, in contanti o app (Kjenndalen, Spiterstulen, Juvasshytta, i parcheggi di Trolltunga e Kjerag).
+**Pedaggi.** La Norvegia ha AutoPASS: i portali leggono la targa e il noleggio ve li riaddebita dopo, con una commissione per pratica. Mettete in conto qualche decina di euro a fine viaggio, e non stupitevi della fattura che arriva a settembre. Alcune strade di montagna e alcuni parcheggi hanno tariffe proprie, in contanti o app (Kjenndalen, Spiterstulen, Juvasshytta e Trolltunga).
 
 **Traghetti.** Quelli di linea sulla E39 non si prenotano: si arriva e si fa la coda. Quelli turistici (Geiranger-Hellesylt) sì, e vanno prenotati.
 
-**Meteo.** Sul lato ovest piove molto, anche ad agosto. Guscio impermeabile serio e scarponi già rodati non sono opzionali. **Trolltunga e Kjerag chiudono o si sconsigliano in caso di maltempo**: tenetevi pronti a scambiare una giornata con un'altra. È il motivo per cui il 15 e il 18 sono stati alleggeriti — servono da cuscinetto.
+**Meteo.** Sul lato ovest piove molto, anche ad agosto. Guscio impermeabile serio e scarponi già rodati non sono opzionali. **Trolltunga, Skomakarnibbå e Preikestolen possono diventare sconsigliabili con pioggia, vento o visibilità scarsa**: tenetevi pronti a scambiare una giornata con un'altra o ad attivare un piano locale più leggero. È il motivo per cui il 15 e il 18 sono stati alleggeriti — servono da cuscinetto.
 
 **App utili.** `yr.no` per il meteo (è il servizio meteorologico nazionale, e in montagna è l'unico affidabile), `ut.no` per i sentieri, `vegvesen.no` per lo stato delle strade e dei tunnel.
 
@@ -416,7 +423,7 @@ Quindi: il 21 pomeriggio Bryggen, il mercato del pesce, il Kode-Rasmus Meyer per
 
 Il resto del viaggio è fatto di sentieri, cascate, traghetti e parcheggi, che di domenica funzionano identici. **Le due cose vincolate a orari — barca del Gjende (martedì 11) e bus dell'Aurlandsdalen (giovedì 13) — cadono entrambe in giorni feriali**, quindi nessun problema di corse ridotte.
 
-**Un effetto collaterale positivo.** Con le date corrette, **Trolltunga cade di lunedì**, non di domenica: parcheggio e sentiero decisamente meno affollati. Stesso discorso per Preikestolen (mercoledì) e Kjerag (giovedì). E le due sere a Bergen sono **venerdì e sabato**, cioè le uniche in cui l'Hellion e l'Alltid Opplett girano davvero.
+**Un effetto collaterale positivo.** Con le date corrette, **Trolltunga cade di lunedì**, non di domenica: parcheggio e sentiero decisamente meno affollati. Skomakarnibbå cade di mercoledì e Preikestolen di giovedì, entrambi feriali. E le due sere a Bergen sono **venerdì e sabato**, cioè le uniche in cui l'Hellion e l'Alltid Opplett girano davvero.
 
 **Soldi.** Si paga con carta ovunque, anche il caffè da due euro. Contanti praticamente inutili. L'alcol è carissimo: vedi la dritta del duty-free il giorno 1.
 
