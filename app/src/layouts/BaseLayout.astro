@@ -51,6 +51,45 @@ const isCuriosities = pathname.startsWith(pathWithBase('curiosita/'));
       for (const link of document.querySelectorAll<HTMLAnchorElement>('[data-today-link]')) {
         link.href = `${base}giorni/${targetDay(current)}/`;
       }
+
+      const editorKey = 'norvegia-editor-mode';
+      const editParameter = params.get('edit');
+      try {
+        if (editParameter === '1') localStorage.setItem(editorKey, '1');
+        if (editParameter === '0') localStorage.removeItem(editorKey);
+      } catch {
+        // La modalità tramite parametro continua a funzionare anche se lo storage è indisponibile.
+      }
+
+      function editorIsActive() {
+        if (editParameter === '1') return true;
+        if (editParameter === '0') return false;
+        try { return localStorage.getItem(editorKey) === '1'; } catch { return false; }
+      }
+
+      function renderEditorMode(active: boolean) {
+        document.documentElement.dataset.editor = active ? 'on' : 'off';
+        for (const element of document.querySelectorAll<HTMLElement>('[data-editor-only]')) element.hidden = !active;
+        for (const element of document.querySelectorAll<HTMLElement>('[data-editor-enable]')) element.hidden = active;
+        for (const element of document.querySelectorAll<HTMLElement>('[data-editor-disable]')) element.hidden = !active;
+        for (const element of document.querySelectorAll<HTMLElement>('[data-editor-state]')) {
+          element.textContent = active ? 'Modalità editor attiva' : 'Modalità editor non attiva';
+        }
+      }
+
+      renderEditorMode(editorIsActive());
+      for (const button of document.querySelectorAll<HTMLElement>('[data-editor-enable]')) {
+        button.addEventListener('click', () => {
+          try { localStorage.setItem(editorKey, '1'); } catch { /* nessun salvataggio persistente */ }
+          renderEditorMode(true);
+        });
+      }
+      for (const button of document.querySelectorAll<HTMLElement>('[data-editor-disable]')) {
+        button.addEventListener('click', () => {
+          try { localStorage.removeItem(editorKey); } catch { /* modalità corrente comunque disattivata */ }
+          renderEditorMode(false);
+        });
+      }
     </script>
   </body>
 </html>

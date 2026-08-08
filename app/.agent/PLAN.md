@@ -54,10 +54,10 @@ Questa è la roadmap persistente. Spunta un elemento solo dopo avere eseguito il
 
 ## P5 - Editing da telefono
 
-- [ ] Implementare modalità editor non invasiva.
-- [ ] Generare link esatti all'editor GitHub per ogni giornata.
-- [ ] Mostrare ultimo aggiornamento e hash breve build quando disponibile.
-- [ ] Documentare flusso commit → Actions → Pages senza promettere immediatezza.
+- [x] Implementare modalità editor non invasiva.
+- [x] Generare link esatti all'editor GitHub per ogni giornata.
+- [x] Mostrare ultimo aggiornamento e hash breve build quando disponibile.
+- [x] Documentare flusso commit → Actions → Pages senza promettere immediatezza.
 
 **Gate:** URL di modifica verificati in configurazione e nessun token/segreto lato client.
 

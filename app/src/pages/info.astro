@@ -1,11 +1,57 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import { buildCommit, buildTime } from '@/lib/build';
+import { actionsUrl, repositoryUrl } from '@/lib/editor';
+
+const buildLabel = new Intl.DateTimeFormat('it-IT', {
+  dateStyle: 'long',
+  timeStyle: 'short',
+  timeZone: 'Europe/Rome',
+}).format(new Date(buildTime));
 ---
 
 <BaseLayout title="Info · Norvegia 2026">
-  <article class="prose">
+  <article class="prose info-page">
     <p class="kicker">Informazioni</p>
     <h1>Come usare l’app</h1>
-    <p>Questa app raccoglie il programma operativo del viaggio. Le informazioni meteo, quando presenti, sono indicative e non sostituiscono i bollettini ufficiali.</p>
+    <p class="lead">Un cruscotto operativo da consultare con una mano, anche quando la connessione è debole.</p>
+
+    <section aria-labelledby="reading-title">
+      <h2 id="reading-title">Leggere il viaggio</h2>
+      <p><strong>Viaggio</strong> mostra tutte le giornate. <strong>Oggi</strong> apre la data pertinente nel fuso di Oslo. Le giornate passate restano visibili ma attenuate.</p>
+      <p>I badge riassumono guida, trekking, stato delle decisioni e attività ancora aperte. Le checkbox sono volutamente in sola lettura: un tocco non finge di salvare una modifica condivisa.</p>
+    </section>
+
+    <section aria-labelledby="editing-title">
+      <h2 id="editing-title">Modificare dal telefono</h2>
+      <p>La modalità editor aggiunge nelle giornate il comando per aprire direttamente il file Markdown corretto nell’editor web di GitHub.</p>
+      <div class="editor-controls">
+        <button class="button" type="button" data-editor-enable>Attiva modalità editor</button>
+        <button class="button button--quiet" type="button" data-editor-disable hidden>Disattiva modalità editor</button>
+        <span class="editor-state" data-editor-state aria-live="polite">Modalità editor non attiva</span>
+      </div>
+      <ol>
+        <li>Apri una giornata e scegli <em>Modifica questa giornata</em>.</li>
+        <li>Accedi a GitHub, correggi il file e fai commit su <code>main</code>.</li>
+        <li>Attendi che GitHub Actions completi validazione e pubblicazione.</li>
+        <li>Ricarica l’app e controlla che la build mostrata qui sia cambiata.</li>
+      </ol>
+      <p>Il commit non equivale a una pubblicazione immediata. Se la build fallisce, il sito continua a servire la versione precedente.</p>
+      <p><a href={actionsUrl} target="_blank" rel="noopener noreferrer">Controlla lo stato su GitHub Actions</a> · <a href={repositoryUrl} target="_blank" rel="noopener noreferrer">Apri il repository</a></p>
+    </section>
+
+    <section aria-labelledby="build-title">
+      <h2 id="build-title">Versione pubblicata</h2>
+      <dl class="build-meta">
+        <div><dt>Ultima build</dt><dd><time datetime={buildTime}>{buildLabel}</time></dd></div>
+        <div><dt>Commit</dt><dd>{buildCommit ? <a href={`${repositoryUrl}/commit/${buildCommit}`} target="_blank" rel="noopener noreferrer"><code>{buildCommit}</code></a> : 'non disponibile nella build locale'}</dd></div>
+      </dl>
+    </section>
+
+    <section aria-labelledby="limits-title">
+      <h2 id="limits-title">Limiti e sicurezza</h2>
+      <p>I link esterni richiedono connessione. Le informazioni meteo, quando presenti, saranno indicative e non sostituiranno mai bollettini ufficiali, condizioni sul posto o giudizio personale.</p>
+      <p>L’app non contiene token GitHub e non salva modifiche condivise dal browser: scrittura e autorizzazione restano su GitHub.</p>
+    </section>
   </article>
 </BaseLayout>

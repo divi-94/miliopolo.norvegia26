@@ -5,6 +5,7 @@ import { getPlaces } from '@/lib/places';
 import { pathWithBase } from '@/lib/paths';
 import { countOpenTasks, drivingLevel, formatDuration, hikeLevel } from '@/lib/trip';
 import { curiosityTypeLabel } from '@/lib/curiosities';
+import { dayEditorUrl } from '@/lib/editor';
 
 export async function getStaticPaths() {
   const days = (await getCollection('days')).sort((a, b) => a.data.dayNumber - b.data.dayNumber);
@@ -40,6 +41,7 @@ const dateLabel = new Intl.DateTimeFormat('it-IT', {
     <p class="kicker">Giorno {day.data.dayNumber} · {dateLabel}</p>
     <h1>{day.data.title}</h1>
     <p class="lead">{day.data.route}</p>
+    <a class="editor-action" data-editor-only hidden href={dayEditorUrl(day.data.date)} target="_blank" rel="noopener noreferrer">Modifica questa giornata su GitHub <span aria-hidden="true">↗</span></a>
     <div class="detail-summary" aria-label="Riepilogo della giornata">
       <span><small>Stato</small><strong>{day.data.status}</strong></span>
       <span><small>Base</small><strong>{day.data.base ?? 'Rientro'}</strong></span>

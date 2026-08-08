@@ -52,3 +52,14 @@ test('filtra le curiosità e apre una storia collegata', async ({ page }) => {
   await expect(page.getByRole('link', { name: /Giorno 9/ })).toBeVisible();
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
 });
+
+test('abilita la modalità editor senza esporre credenziali', async ({ page }) => {
+  await page.goto('./giorni/2026-08-17/?edit=1');
+  const editLink = page.getByRole('link', { name: /Modifica questa giornata/ });
+  await expect(editLink).toBeVisible();
+  await expect(editLink).toHaveAttribute('href', 'https://github.com/divi-94/miliopolo.norvegia26/edit/main/app/src/content/days/2026-08-17.md');
+  await page.goto('./info/');
+  await expect(page.getByText('Modalità editor attiva')).toBeVisible();
+  await page.getByRole('button', { name: 'Disattiva modalità editor' }).click();
+  await expect(page.getByText('Modalità editor non attiva')).toBeVisible();
+});

@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { readingMinutes } from '../src/lib/curiosities';
+import { dayEditorUrl } from '../src/lib/editor';
 import {
   countOpenTasks,
   dayProgress,
@@ -46,6 +47,12 @@ describe('tempo di lettura', () => {
   it('restituisce almeno un minuto e arrotonda per eccesso', () => {
     expect(readingMinutes('')).toBe(1);
     expect(readingMinutes(Array.from({ length: 201 }, () => 'parola').join(' '))).toBe(2);
+  });
+});
+
+describe('editing da telefono', () => {
+  it('punta al file giornaliero esatto sul branch main', () => {
+    expect(dayEditorUrl('2026-08-17')).toBe('https://github.com/divi-94/miliopolo.norvegia26/edit/main/app/src/content/days/2026-08-17.md');
   });
 });
 
