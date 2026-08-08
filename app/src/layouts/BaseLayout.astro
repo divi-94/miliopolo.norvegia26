@@ -11,6 +11,9 @@ const {
   title = 'Norvegia 2026',
   description = 'Il cruscotto operativo del viaggio in Norvegia, dal 9 al 23 agosto 2026.',
 } = Astro.props;
+const pathname = Astro.url.pathname;
+const isHome = pathname === pathWithBase();
+const isCuriosities = pathname.startsWith(pathWithBase('curiosita/'));
 ---
 
 <!doctype html>
@@ -35,9 +38,19 @@ const {
       <slot />
     </main>
     <nav class="bottom-nav" aria-label="Navigazione principale">
-      <a href={pathWithBase()} aria-current={Astro.url.pathname === pathWithBase() ? 'page' : undefined}>Viaggio</a>
-      <a href={pathWithBase('giorni/2026-08-09/')}>Oggi</a>
-      <a href={pathWithBase('curiosita/')}>Curiosità</a>
+      <a href={pathWithBase()} aria-current={isHome ? 'page' : undefined}>Viaggio</a>
+      <a data-today-link href={pathWithBase('giorni/2026-08-09/')}>Oggi</a>
+      <a href={pathWithBase('curiosita/')} aria-current={isCuriosities ? 'page' : undefined}>Curiosità</a>
     </nav>
+    <script>
+      import { osloDate, targetDay } from '@/lib/trip';
+      const params = new URLSearchParams(window.location.search);
+      const simulated = params.get('date');
+      const current = simulated && /^\d{4}-\d{2}-\d{2}$/.test(simulated) ? simulated : osloDate();
+      const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+      for (const link of document.querySelectorAll<HTMLAnchorElement>('[data-today-link]')) {
+        link.href = `${base}giorni/${targetDay(current)}/`;
+      }
+    </script>
   </body>
 </html>

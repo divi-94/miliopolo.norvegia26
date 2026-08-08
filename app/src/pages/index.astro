@@ -1,16 +1,70 @@
 ---
+import { getCollection } from 'astro:content';
+import DayCard from '@/components/DayCard.astro';
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import { pathWithBase } from '@/lib/paths';
+
+const days = (await getCollection('days')).sort((a, b) => a.data.dayNumber - b.data.dayNumber);
 ---
 
 <BaseLayout>
-  <section class="intro" aria-labelledby="page-title">
-    <p class="kicker">15 giorni · 7 viaggiatori</p>
-    <h1 id="page-title">Il viaggio, a colpo d’occhio</h1>
-    <p>Programma, decisioni aperte, luoghi e storie: tutto ciò che serve sul posto, senza rumore.</p>
+  <section class="trip-board" aria-labelledby="page-title" data-trip-board>
+    <div class="trip-board__copy">
+      <p class="kicker">9–23 agosto 2026 · 15 giorni</p>
+      <h1 id="page-title">Il viaggio, a colpo d’occhio</h1>
+      <p data-trip-message>Il programma completo, in ordine cronologico.</p>
+    </div>
+    <a class="today-cta" data-today-link href={pathWithBase('giorni/2026-08-09/')}>
+      <span data-progress-label>Prossima partenza</span>
+      <strong data-today-label>Giorno 1 di 15</strong>
+      <span>Apri la giornata <span aria-hidden="true">→</span></span>
+    </a>
   </section>
-  <section class="panel" aria-labelledby="roadmap-title">
-    <p class="panel__label">Preparazione in corso</p>
-    <h2 id="roadmap-title">Dal 9 al 23 agosto 2026</h2>
-    <p>Le giornate del viaggio saranno disponibili qui in ordine cronologico.</p>
+
+  <section class="day-list" aria-label="Tutte le giornate">
+    {days.map((day) => <DayCard day={day} />)}
   </section>
 </BaseLayout>
+
+<script>
+  import { dayProgress, daysUntilTrip, osloDate, targetDay, temporalState, tripPhase, validSimulatedDate } from '@/lib/trip';
+
+  const params = new URLSearchParams(window.location.search);
+  const currentDate = validSimulatedDate(params.get('date')) ?? osloDate();
+  const phase = tripPhase(currentDate);
+  const target = targetDay(currentDate);
+  const progress = dayProgress(currentDate);
+  const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
+  const targetUrl = `${base}giorni/${target}/`;
+  const cards = [...document.querySelectorAll<HTMLElement>('[data-day-card]')];
+
+  for (const card of cards) {
+    const state = temporalState(card.dataset.date ?? '', currentDate);
+    card.dataset.temporal = state;
+    if (state === 'today') card.setAttribute('aria-current', 'date');
+  }
+
+  for (const link of document.querySelectorAll<HTMLAnchorElement>('[data-today-link]')) link.href = targetUrl;
+  const progressLabel = document.querySelector<HTMLElement>('[data-progress-label]');
+  const todayLabel = document.querySelector<HTMLElement>('[data-today-label]');
+  const message = document.querySelector<HTMLElement>('[data-trip-message]');
+  if (todayLabel) todayLabel.textContent = `Giorno ${progress} di 15`;
+
+  if (phase === 'before') {
+    if (progressLabel) progressLabel.textContent = 'Prossima partenza';
+    if (message) {
+      const remaining = daysUntilTrip(currentDate);
+      message.textContent = remaining === 1 ? 'Si parte domani.' : `Mancano ${remaining} giorni alla partenza.`;
+    }
+  } else if (phase === 'after') {
+    if (progressLabel) progressLabel.textContent = 'Viaggio concluso';
+    if (message) message.textContent = 'Quindici giorni da ripercorrere, tappa dopo tappa.';
+  } else {
+    if (progressLabel) progressLabel.textContent = 'Oggi';
+    if (message) message.textContent = `Siamo al giorno ${progress} di 15.`;
+    const todayCard = document.querySelector<HTMLElement>('[data-temporal="today"]');
+    if (todayCard && !window.location.hash && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      requestAnimationFrame(() => todayCard.scrollIntoView({ block: 'center' }));
+    }
+  }
+</script>

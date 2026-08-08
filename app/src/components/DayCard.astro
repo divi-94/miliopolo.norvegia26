@@ -1,0 +1,51 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { countOpenTasks, drivingLevel, formatDuration, hikeLevel } from '@/lib/trip';
+import { pathWithBase } from '@/lib/paths';
+
+interface Props { day: CollectionEntry<'days'>; }
+const { day } = Astro.props;
+const { data, body } = day;
+const dateLabel = new Intl.DateTimeFormat('it-IT', {
+  timeZone: 'Europe/Oslo', weekday: 'short', day: 'numeric', month: 'short',
+}).format(new Date(`${data.date}T12:00:00Z`));
+const openTasks = countOpenTasks(body ?? '');
+const drive = drivingLevel(data.drivingMinutes);
+const hike = hikeLevel(data.hike);
+const hikeDetails = [
+  data.hike?.durationHours ? `${data.hike.durationHours}h` : null,
+  data.hike?.distanceKm ? `${data.hike.distanceKm} km` : null,
+  data.hike?.elevationGainM ? `${data.hike.elevationGainM.toLocaleString('it-IT')} m+` : null,
+].filter(Boolean).join(' · ');
+---
+
+<article class="day-card" data-day-card data-date={data.date} id={`giorno-${data.dayNumber}`}>
+  <a class="day-card__link" href={pathWithBase(`giorni/${data.date}/`)} aria-label={`Giorno ${data.dayNumber}: ${data.title}`}>
+    <span class="day-card__number" aria-hidden="true">{String(data.dayNumber).padStart(2, '0')}</span>
+    <span class="day-card__date">{dateLabel}</span>
+    <span class="day-card__title">{data.title}</span>
+    <span class="day-card__route">{data.route}</span>
+    <span class="day-card__base">Base · {data.base ?? 'rientro'}</span>
+    <span class="badges" aria-label="Indicatori della giornata">
+      {drive && data.drivingMinutes !== null && (
+        <span class={`badge badge--drive badge--${drive}`} aria-label={`Guida ${drive}: ${formatDuration(data.drivingMinutes)}`}>
+          <span aria-hidden="true">●</span> Auto {formatDuration(data.drivingMinutes)}
+        </span>
+      )}
+      {hike && (
+        <span class={`badge badge--hike badge--${hike}`} aria-label={`Trekking ${hike}${hikeDetails ? `: ${hikeDetails}` : ''}`}>
+          <span aria-hidden="true">▲</span> {hikeDetails || hike}
+        </span>
+      )}
+      <span class={`badge badge--status badge--${data.status}`} aria-label={`Stato: ${data.status}`}>
+        <span aria-hidden="true">◆</span> {data.status}
+      </span>
+      {openTasks > 0 && (
+        <span class="badge badge--tasks" aria-label={`${openTasks} attività da chiudere`}>
+          <span aria-hidden="true">□</span> {openTasks} da chiudere
+        </span>
+      )}
+    </span>
+    <span class="day-card__open" aria-hidden="true">Apri <span>→</span></span>
+  </a>
+</article>

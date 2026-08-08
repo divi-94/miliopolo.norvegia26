@@ -1,4 +1,4 @@
-import { defineConfig, devices } from '@playwright/test';
+import { defineConfig } from '@playwright/test';
 
 export default defineConfig({
   testDir: './tests/e2e',
@@ -11,5 +11,13 @@ export default defineConfig({
     port: 4321,
     reuseExistingServer: !process.env.CI,
   },
-  projects: [{ name: 'mobile-chromium', use: { ...devices['iPhone 13'] } }],
+  projects: [{
+    name: 'mobile-chromium',
+    use: {
+      browserName: 'chromium',
+      viewport: { width: 360, height: 800 },
+      hasTouch: true,
+      isMobile: true,
+    },
+  }],
 });

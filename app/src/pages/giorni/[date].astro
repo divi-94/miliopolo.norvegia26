@@ -1,0 +1,23 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { pathWithBase } from '@/lib/paths';
+
+export async function getStaticPaths() {
+  const days = await getCollection('days');
+  return days.map((day) => ({ params: { date: day.data.date }, props: { day } }));
+}
+
+const { day } = Astro.props;
+const { Content } = await render(day);
+---
+
+<BaseLayout title={`${day.data.title} · Norvegia 2026`}>
+  <article class="day-detail prose">
+    <a class="back-link" href={pathWithBase()}>← Tutte le giornate</a>
+    <p class="kicker">Giorno {day.data.dayNumber} · {day.data.date}</p>
+    <h1>{day.data.title}</h1>
+    <p class="lead">{day.data.route}</p>
+    <Content />
+  </article>
+</BaseLayout>

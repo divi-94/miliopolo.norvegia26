@@ -24,11 +24,11 @@ Questa è la roadmap persistente. Spunta un elemento solo dopo avere eseguito il
 
 ## P2 - Home e navigazione temporale
 
-- [ ] Implementare testata, avanzamento e lista cronologica a schede.
-- [ ] Implementare badge guida, trekking, stato e TODO.
-- [ ] Implementare passato/oggi/futuro in `Europe/Oslo`.
-- [ ] Gestire prima e dopo il viaggio e il parametro di test della data.
-- [ ] Implementare barra mobile Viaggio/Oggi/Curiosità.
+- [x] Implementare testata, avanzamento e lista cronologica a schede.
+- [x] Implementare badge guida, trekking, stato e TODO.
+- [x] Implementare passato/oggi/futuro in `Europe/Oslo`.
+- [x] Gestire prima e dopo il viaggio e il parametro di test della data.
+- [x] Implementare barra mobile Viaggio/Oggi/Curiosità.
 
 **Gate:** test unitari delle date e dei badge, test mobile della home e `pnpm check` verde.
 
