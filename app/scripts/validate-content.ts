@@ -51,6 +51,10 @@ if (JSON.stringify(actualNumbers) !== JSON.stringify(expectedNumbers)) {
   throw new Error(`Numerazione giornate incompleta: ${actualNumbers.join(', ')}`);
 }
 
+if (curiosities.length !== 51) {
+  throw new Error(`L'inventario editoriale richiede 51 curiosità; trovate: ${curiosities.length}`);
+}
+
 const dates = new Set(days.map(({ data }) => data.date));
 const placeSlugs = new Set(places.map(({ slug }) => slug));
 for (const { path, data } of days) {

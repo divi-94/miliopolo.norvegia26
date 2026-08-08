@@ -39,3 +39,16 @@ test('collega un luogo alle mappe e alle giornate', async ({ page }) => {
   await expect(mapLink).toHaveAttribute('rel', /noopener/);
   await expect(page.getByRole('link', { name: /Giorno 9 Trolltunga/ })).toBeVisible();
 });
+
+test('filtra le curiosità e apre una storia collegata', async ({ page }) => {
+  await page.goto('./curiosita/');
+  await expect(page.getByRole('heading', { name: 'Curiosità', level: 1 })).toBeVisible();
+  await expect(page.locator('[data-curiosity-card]')).toHaveCount(51);
+  await page.locator('[data-curiosity-day]').selectOption('2026-08-17');
+  await expect(page.locator('[data-curiosity-card]:visible')).toHaveCount(4);
+  await page.getByRole('link', { name: 'Come si è formata la lingua' }).click();
+  await expect(page.getByRole('heading', { name: 'Come si è formata la lingua', level: 1 })).toBeVisible();
+  await expect(page.getByRole('link', { name: 'Trolltunga', exact: true })).toBeVisible();
+  await expect(page.getByRole('link', { name: /Giorno 9/ })).toBeVisible();
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
+});

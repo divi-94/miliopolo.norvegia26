@@ -2,12 +2,12 @@
 
 ```yaml
 project_status: in_progress
-active_phase: P4
-last_completed_item: "P3 - Dettaglio giorno, luoghi e azioni"
-next_action: "Estrarre e collegare integralmente le curiosità dal PDF"
+active_phase: P5
+last_completed_item: "P4 - Curiosità"
+next_action: "Implementare modalità editor e metadati di build"
 last_green_checks:
   - "pnpm check (2026-08-08)"
-  - "pnpm test:e2e (4 test, 2026-08-08)"
+  - "pnpm test:e2e (5 test, 2026-08-08)"
 current_blocker: null
 last_updated: "2026-08-08"
 ```
@@ -30,5 +30,6 @@ last_updated: "2026-08-08"
 | 2 | Importate 15 giornate e 74 luoghi senza codici sensibili | `pnpm check`, controllo privacy | verde |
 | 3 | Home, stati Oslo, badge, TODO e navigazione mobile | `pnpm check`, `pnpm test:e2e`, QA 320/360/390 | verde |
 | 4 | Dettagli giorno, checklist, 74 pagine luogo e azioni esterne | `pnpm check`, 93 pagine e 4 test e2e | verde |
+| 5 | Inventario integrale di 51 curiosità, indice filtrabile e relazioni | `pnpm check`, 159 pagine, 5 test e2e e QA 320/390 | verde |
 
 Limitare ogni nuova riga a una frase breve. I dettagli appartengono al codice, ai test o al report finale.

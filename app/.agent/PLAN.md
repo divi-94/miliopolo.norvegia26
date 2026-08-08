@@ -44,11 +44,11 @@ Questa è la roadmap persistente. Spunta un elemento solo dopo avere eseguito il
 
 ## P4 - Curiosità
 
-- [ ] Estrarre integralmente le storie dal PDF secondo l'inventario della specifica.
-- [ ] Conservare distinzione fra storia, fatto e leggenda.
-- [ ] Collegare ogni curiosità ad almeno un luogo e una giornata.
-- [ ] Implementare indice per luogo, filtro per giornata e pagine di dettaglio.
-- [ ] Collegare curiosità pertinenti dalle pagine giorno e luogo.
+- [x] Estrarre integralmente le storie dal PDF secondo l'inventario della specifica.
+- [x] Conservare distinzione fra storia, fatto e leggenda.
+- [x] Collegare ogni curiosità ad almeno un luogo e una giornata.
+- [x] Implementare indice per luogo, filtro per giornata e pagine di dettaglio.
+- [x] Collegare curiosità pertinenti dalle pagine giorno e luogo.
 
 **Gate:** inventario completo, relazioni valide, testi leggibili su mobile e `pnpm check` verde.
 

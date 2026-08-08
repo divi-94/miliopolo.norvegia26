@@ -4,6 +4,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import { getPlaces } from '@/lib/places';
 import { pathWithBase } from '@/lib/paths';
 import { countOpenTasks, drivingLevel, formatDuration, hikeLevel } from '@/lib/trip';
+import { curiosityTypeLabel } from '@/lib/curiosities';
 
 export async function getStaticPaths() {
   const days = (await getCollection('days')).sort((a, b) => a.data.dayNumber - b.data.dayNumber);
@@ -23,6 +24,7 @@ export async function getStaticPaths() {
 }
 
 const { day, previous, next, relatedPlaces } = Astro.props;
+const relatedCuriosities = (await getCollection('curiosities')).filter((item) => item.data.days.includes(day.data.date));
 const { Content } = await render(day);
 const drive = drivingLevel(day.data.drivingMinutes);
 const hike = hikeLevel(day.data.hike);
@@ -52,6 +54,15 @@ const dateLabel = new Intl.DateTimeFormat('it-IT', {
         <h2 id="places-title">Luoghi della giornata</h2>
         <div class="place-chips">
           {relatedPlaces.map((place) => <a href={pathWithBase(`luoghi/${place.slug}/`)}>{place.name}</a>)}
+        </div>
+      </section>
+    )}
+
+    {relatedCuriosities.length > 0 && (
+      <section class="related-section" aria-labelledby="day-curiosities-title">
+        <h2 id="day-curiosities-title">Storie della giornata</h2>
+        <div class="linked-list">
+          {relatedCuriosities.map((item) => <a href={pathWithBase(`curiosita/${item.data.slug}/`)}><span>{curiosityTypeLabel[item.data.type]}</span><strong>{item.data.title}</strong></a>)}
         </div>
       </section>
     )}

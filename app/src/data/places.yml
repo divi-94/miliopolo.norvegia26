@@ -1,6 +1,9 @@
 - slug: oslo-gardermoen
   name: Aeroporto di Oslo Gardermoen
   area: Oslo
+- slug: oslo
+  name: Oslo
+  area: Oslo
 - slug: vigelandsparken
   name: Vigelandsparken
   area: Oslo
@@ -29,6 +32,15 @@
 - slug: gjende
   name: Gjende
   area: Jotunheimen
+- slug: besseggen
+  name: Besseggen
+  area: Jotunheimen
+- slug: glittertind
+  name: Glittertind
+  area: Jotunheimen
+- slug: lom
+  name: Lom
+  area: Innlandet
 - slug: juvasshytta
   name: Juvasshytta
   area: Jotunheimen
@@ -50,6 +62,9 @@
 - slug: skala
   name: Skåla
   area: Nordfjord
+- slug: lovatnet
+  name: Lovatnet
+  area: Loen
 - slug: boyabreen
   name: Bøyabreen
   area: Fjærland
@@ -61,6 +76,9 @@
   area: Sogn
 - slug: mannheller
   name: Mannheller
+  area: Sogn
+- slug: laerdalstunnelen
+  name: Lærdalstunnelen
   area: Sogn
 - slug: vassbygdi
   name: Vassbygdi
@@ -110,6 +128,12 @@
 - slug: voringsfossen
   name: Vøringsfossen
   area: Hardanger
+- slug: fossli
+  name: Fossli
+  area: Hardanger
+- slug: mabodalen
+  name: Måbødalen
+  area: Hardanger
 - slug: husedalen
   name: Husedalen
   area: Hardanger
@@ -149,6 +173,9 @@
 - slug: p3-magelitopp
   name: P3 Mågelitopp
   area: Trolltunga
+- slug: ringedalsdammen
+  name: Ringedalsdammen
+  area: Trolltunga
 - slug: trolltunga
   name: Trolltunga
   area: Hardanger
@@ -161,6 +188,15 @@
 - slug: dyrskar
   name: Dyrskar
   area: Hardangervidda
+- slug: hardangervidda
+  name: Hardangervidda
+  area: Hardangervidda
+- slug: finse
+  name: Finse
+  area: Hardangervidda
+- slug: vemork
+  name: Vemork
+  area: Telemark
 - slug: vivassdalen
   name: Vivassdalen
   area: Røldal
@@ -169,6 +205,9 @@
   area: Odda
 - slug: sauda
   name: Sauda
+  area: Ryfylke
+- slug: suldal
+  name: Suldal
   area: Ryfylke
 - slug: nesvik
   name: Nesvik
@@ -217,6 +256,12 @@
   area: Bergen
 - slug: stoltzekleiven
   name: Stoltzekleiven
+  area: Bergen
+- slug: troldhaugen
+  name: Troldhaugen
+  area: Bergen
+- slug: museo-lebbra-bergen
+  name: Museo della lebbra
   area: Bergen
 - slug: bergen-flesland
   name: Aeroporto di Bergen Flesland

@@ -89,8 +89,31 @@ p { color: var(--muted); line-height: 1.55; }
 .linked-list a { min-height: 4rem; display: grid; align-content: center; gap: .08rem; border: 1px solid var(--line); border-radius: .7rem; padding: .65rem .8rem; background: #fff; text-decoration: none !important; }
 .linked-list span { color: var(--muted); font-size: .7rem; font-weight: 800; text-transform: uppercase; }
 .button { display: inline-flex; min-height: 44px; align-items: center; justify-content: center; border-radius: .65rem; padding: .65rem 1rem; background: var(--fjord-800); color: #fff; font-weight: 800; text-decoration: none; }
+.curiosity-index { max-width: 52rem; margin-inline: auto; padding-block: 1rem; }
+.curiosity-index > .lead { max-width: 38rem; }
+.curiosity-filters { display: grid; gap: .65rem; margin: 1.4rem 0 .5rem; border: 1px solid var(--line); border-radius: .9rem; padding: .85rem; background: #fff; }
+.curiosity-filters label { display: grid; gap: .35rem; color: var(--fjord-950); font-size: .75rem; font-weight: 850; }
+.curiosity-filters input, .curiosity-filters select { width: 100%; min-height: 48px; border: 1px solid #94a3b8; border-radius: .6rem; padding: .65rem .75rem; background: #fff; color: var(--ink); font: inherit; }
+.filter-result { margin: .65rem 0 1.4rem; font-size: .8rem; font-weight: 800; }
+.curiosity-groups { display: grid; gap: 2rem; }
+.curiosity-group__heading { display: flex; align-items: end; justify-content: space-between; gap: .75rem; margin-bottom: .65rem; }
+.curiosity-group__heading p { margin: 0 0 .1rem; color: var(--rust); font-size: .7rem; font-weight: 850; letter-spacing: .07em; text-transform: uppercase; }
+.curiosity-group__heading a { min-height: 44px; display: inline-flex; align-items: center; flex: 0 0 auto; color: var(--fjord-800); font-size: .75rem; font-weight: 820; }
+.curiosity-grid { display: grid; gap: .6rem; }
+.curiosity-card { border: 1px solid var(--line); border-radius: .8rem; padding: .85rem; background: #fff; box-shadow: 0 .35rem 1.2rem rgba(8,47,73,.05); }
+.curiosity-card[hidden], .curiosity-group[hidden] { display: none; }
+.curiosity-card__meta, .story-heading { display: flex; align-items: center; gap: .5rem; color: var(--muted); font-size: .72rem; font-weight: 780; }
+.story-type { min-height: 1.6rem; display: inline-flex; align-items: center; border-radius: 99rem; padding: .2rem .5rem; background: var(--ice-100); color: var(--fjord-950); font-size: .68rem; font-weight: 850; letter-spacing: .04em; text-transform: uppercase; }
+.story-type--leggenda { background: #fef3c7; color: #713f12; }
+.story-type--storia { background: #ede9fe; color: #4c1d95; }
+.curiosity-card h3 { margin: .55rem 0 .35rem; font-size: 1.05rem; line-height: 1.15; }
+.curiosity-card h3 a { text-decoration-color: #7dd3fc; text-underline-offset: .16em; }
+.curiosity-card p { margin: 0; font-size: .85rem; }
+.empty-filter { border: 1px dashed #94a3b8; border-radius: .8rem; padding: 1rem; text-align: center; }
+.story-heading { margin: 1rem 0 .7rem; }
 .bottom-nav { position: fixed; z-index: 10; right: 0; bottom: 0; left: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: .25rem; padding: .45rem max(.65rem, env(safe-area-inset-right)) calc(.45rem + var(--safe-bottom)) max(.65rem, env(safe-area-inset-left)); border-top: 1px solid rgba(255,255,255,.24); background: rgba(8,47,73,.97); color: #fff; backdrop-filter: blur(14px); }
 .bottom-nav a { min-height: 44px; display: grid; place-items: center; border-radius: .55rem; font-size: .83rem; font-weight: 800; text-decoration: none; }
 .bottom-nav a[aria-current="page"] { background: var(--ice-100); color: var(--fjord-950); }
+@media (min-width: 40rem) { .curiosity-filters { grid-template-columns: 1fr 1fr; } .curiosity-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (min-width: 48rem) { main { padding-block: 2.5rem 4rem; } .trip-board { grid-template-columns: 1fr minmax(15rem, .45fr); } .day-list { grid-template-columns: repeat(2, minmax(0, 1fr)); } .bottom-nav { width: 24rem; right: 1rem; bottom: 1rem; left: auto; border: 0; border-radius: .8rem; box-shadow: 0 .7rem 2rem rgba(8,47,73,.25); } }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; } }

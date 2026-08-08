@@ -1,0 +1,57 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { curiosityTypeLabel, readingMinutes } from '@/lib/curiosities';
+import { getPlaces } from '@/lib/places';
+import { pathWithBase } from '@/lib/paths';
+
+export async function getStaticPaths() {
+  const items = await getCollection('curiosities');
+  const days = await getCollection('days');
+  const places = getPlaces();
+  return items.map((item) => ({
+    params: { slug: item.data.slug },
+    props: {
+      item,
+      relatedDays: item.data.days.flatMap((date) => {
+        const day = days.find((candidate) => candidate.data.date === date);
+        return day ? [day] : [];
+      }),
+      relatedPlaces: item.data.places.flatMap((slug) => {
+        const place = places.find((candidate) => candidate.slug === slug);
+        return place ? [place] : [];
+      }),
+    },
+  }));
+}
+
+const { item, relatedDays, relatedPlaces } = Astro.props;
+const { Content } = await render(item);
+---
+
+<BaseLayout title={`${item.data.title} · Norvegia 2026`} description={item.data.excerpt}>
+  <article class="curiosity-detail prose">
+    <a class="back-link" href={pathWithBase('curiosita/')}>← Tutte le curiosità</a>
+    <div class="story-heading">
+      <span class={`story-type story-type--${item.data.type}`}>{curiosityTypeLabel[item.data.type]}</span>
+      <span>{readingMinutes(item.body ?? '')} min di lettura</span>
+    </div>
+    <h1>{item.data.title}</h1>
+    {item.data.excerpt && <p class="lead">{item.data.excerpt}</p>}
+    <Content />
+
+    <section class="related-section" aria-labelledby="story-places-title">
+      <h2 id="story-places-title">Dove si trova</h2>
+      <div class="place-chips">
+        {relatedPlaces.map((place) => <a href={pathWithBase(`luoghi/${place.slug}/`)}>{place.name}</a>)}
+      </div>
+    </section>
+
+    <section class="related-section" aria-labelledby="story-days-title">
+      <h2 id="story-days-title">Nel programma</h2>
+      <div class="linked-list">
+        {relatedDays.map((day) => <a href={pathWithBase(`giorni/${day.data.date}/`)}><span>Giorno {day.data.dayNumber}</span><strong>{day.data.title}</strong></a>)}
+      </div>
+    </section>
+  </article>
+</BaseLayout>

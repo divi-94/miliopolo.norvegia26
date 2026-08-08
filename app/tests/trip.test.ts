@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import { readingMinutes } from '../src/lib/curiosities';
 import {
   countOpenTasks,
   dayProgress,
@@ -38,6 +39,13 @@ describe('calendario del viaggio', () => {
     expect(validSimulatedDate('2026-08-17')).toBe('2026-08-17');
     expect(validSimulatedDate('17-08-2026')).toBeNull();
     expect(validSimulatedDate('2026-99-99')).toBeNull();
+  });
+});
+
+describe('tempo di lettura', () => {
+  it('restituisce almeno un minuto e arrotonda per eccesso', () => {
+    expect(readingMinutes('')).toBe(1);
+    expect(readingMinutes(Array.from({ length: 201 }, () => 'parola').join(' '))).toBe(2);
   });
 });
 
