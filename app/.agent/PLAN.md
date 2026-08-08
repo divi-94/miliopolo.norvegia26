@@ -1,0 +1,93 @@
+# Piano di esecuzione
+
+Questa è la roadmap persistente. Spunta un elemento solo dopo avere eseguito il gate indicato e annotato l'evidenza in `STATUS.md`.
+
+## P0 - Bootstrap e fondamenta
+
+- [ ] Inizializzare Astro statico con TypeScript strict e pnpm.
+- [ ] Configurare `site`/`base` senza hardcode fragile.
+- [ ] Creare gli script `validate`, `typecheck`, `test`, `build`, `test:e2e`, `check`.
+- [ ] Definire Content Collections e validazione incrociata di date/slug.
+- [ ] Aggiungere struttura CSS mobile-first e layout base accessibile.
+
+**Gate:** installazione riproducibile da lockfile, pagina minima renderizzata e `pnpm check` verde.
+
+## P1 - Migrazione delle 15 giornate
+
+- [ ] Importare una giornata campione e validarne la struttura.
+- [ ] Migrare tutte le date dal 9 al 23 agosto dal documento finale.
+- [ ] Separare Bergen in 21 e 22 agosto senza duplicazioni incoerenti.
+- [ ] Rimuovere codici di prenotazione e dati sensibili.
+- [ ] Verificare fedeltà al documento finale e assenza di contenuti dai tavoli superati.
+
+**Gate:** esattamente 15 date valide, nessun riferimento rotto, controllo privacy verde e `pnpm check` verde.
+
+## P2 - Home e navigazione temporale
+
+- [ ] Implementare testata, avanzamento e lista cronologica a schede.
+- [ ] Implementare badge guida, trekking, stato e TODO.
+- [ ] Implementare passato/oggi/futuro in `Europe/Oslo`.
+- [ ] Gestire prima e dopo il viaggio e il parametro di test della data.
+- [ ] Implementare barra mobile Viaggio/Oggi/Curiosità.
+
+**Gate:** test unitari delle date e dei badge, test mobile della home e `pnpm check` verde.
+
+## P3 - Dettaglio giorno, luoghi e azioni
+
+- [ ] Implementare dettaglio con sezioni condizionali nell'ordine richiesto.
+- [ ] Implementare checklist in sola lettura e conteggio TODO.
+- [ ] Modellare luoghi e relazioni con le giornate.
+- [ ] Rendere luoghi, mappe, siti, tracce, telefono ed email azionabili.
+- [ ] Implementare precedente/successivo e collegamenti interni base-aware.
+
+**Gate:** nessun link/slug rotto, test delle rotte principali e controllo visuale mobile verde.
+
+## P4 - Curiosità
+
+- [ ] Estrarre integralmente le storie dal PDF secondo l'inventario della specifica.
+- [ ] Conservare distinzione fra storia, fatto e leggenda.
+- [ ] Collegare ogni curiosità ad almeno un luogo e una giornata.
+- [ ] Implementare indice per luogo, filtro per giornata e pagine di dettaglio.
+- [ ] Collegare curiosità pertinenti dalle pagine giorno e luogo.
+
+**Gate:** inventario completo, relazioni valide, testi leggibili su mobile e `pnpm check` verde.
+
+## P5 - Editing da telefono
+
+- [ ] Implementare modalità editor non invasiva.
+- [ ] Generare link esatti all'editor GitHub per ogni giornata.
+- [ ] Mostrare ultimo aggiornamento e hash breve build quando disponibile.
+- [ ] Documentare flusso commit → Actions → Pages senza promettere immediatezza.
+
+**Gate:** URL di modifica verificati in configurazione e nessun token/segreto lato client.
+
+## P6 - PWA e offline
+
+- [ ] Creare manifest e icone locali.
+- [ ] Implementare caching dei contenuti editoriali e degli asset versionati.
+- [ ] Implementare stato offline e aggiornamento disponibile.
+- [ ] Verificare manifest/service worker sotto il base path.
+
+**Gate:** contenuti essenziali riapribili offline dopo la prima visita e aggiornamento non bloccante.
+
+## P7 - Meteo
+
+- [ ] Definire punti meteo verificati e punto primario per giornata pertinente.
+- [ ] Implementare client Open-Meteo, mapping codici e attribuzione.
+- [ ] Implementare home oggi+2, dettaglio, cache e timestamp.
+- [ ] Gestire fuori finestra, offline, errore API e dati vecchi.
+- [ ] Inserire disclaimer e link ufficiali per escursioni sensibili.
+
+**Gate:** test unitari del mapping, errori di rete gestiti e nessun blocco del contenuto statico.
+
+## P8 - CI, QA e consegna
+
+- [ ] Creare workflow GitHub Pages con test prima del deploy e concurrency.
+- [ ] Completare Playwright per home, giorno, luogo, curiosità, date simulate e no-JS.
+- [ ] Verificare 320, 360 e 390 px senza scroll orizzontale.
+- [ ] Eseguire controllo accessibilità, performance, link e console.
+- [ ] Autorivedere tutto il diff rispetto alla specifica.
+- [ ] Compilare `FINAL_REPORT.md` e marcare il progetto completo.
+
+**Gate finale:** `pnpm check` e `pnpm test:e2e` verdi, QA visuale documentata e tutti i criteri di accettazione soddisfatti.
+
