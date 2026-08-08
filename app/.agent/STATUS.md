@@ -3,7 +3,7 @@
 ```yaml
 project_status: blocked
 active_phase: P8
-last_completed_item: "P7 - Meteo"
+last_completed_item: "P8 - QA finale (workflow escluso)"
 next_action: "Aggiungere il workflow Pages dopo autorizzazione esplicita"
 last_green_checks:
   - "pnpm check (15 giornate, 89 luoghi, 51 curiosità, 13 test, 159 pagine e link, 2026-08-08)"
