@@ -7,6 +7,11 @@ export default function rehypeExternalLinks() {
 }
 
 function visit(node) {
+  if (node?.type === 'element' && node.tagName === 'input' && node.properties?.type === 'checkbox') {
+    node.properties.ariaLabel = node.properties.checked
+      ? 'Attività completata, in sola lettura'
+      : 'Attività da completare, in sola lettura';
+  }
   if (node?.type === 'element' && node.tagName === 'a') {
     const href = String(node.properties?.href ?? '');
     node.properties ??= {};

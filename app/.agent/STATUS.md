@@ -1,14 +1,15 @@
 # Stato del lavoro
 
 ```yaml
-project_status: in_progress
+project_status: blocked
 active_phase: P8
 last_completed_item: "P7 - Meteo"
-next_action: "Completare CI, test no-JS, audit mobile e report finale"
+next_action: "Aggiungere il workflow Pages dopo autorizzazione esplicita"
 last_green_checks:
-  - "pnpm check (2026-08-08)"
-  - "pnpm test:e2e (8 test, inclusi offline ed errore meteo, 2026-08-08)"
-current_blocker: null
+  - "pnpm check (15 giornate, 89 luoghi, 51 curiosità, 13 test, 159 pagine e link, 2026-08-08)"
+  - "pnpm test:e2e (15 test inclusi no-JS, offline, axe e Lighthouse, 2026-08-08)"
+  - "QA visuale browser a 320, 360 e 390 px (2026-08-08)"
+current_blocker: "Il workflow richiesto abilita un deploy automatico Pages, ma manca l'autorizzazione esplicita a predisporre tale scrittura esterna"
 last_updated: "2026-08-08"
 ```
 
@@ -34,5 +35,6 @@ last_updated: "2026-08-08"
 | 6 | Modalità editor persistente, URL GitHub e metadati di build | `pnpm check`, 10 test unitari, 6 test e2e e QA 360 | verde |
 | 7 | PWA base-aware, 159 contenuti precache, stato offline e aggiornamenti | `pnpm check`, 7 test e2e incluso offline e verifica endpoint | verde |
 | 8 | Meteo Open-Meteo per 11 punti, cache, fasce orarie e fallback | `pnpm check`, 13 test unitari, 8 test e2e e QA API reale 360 | verde |
+| 9 | QA finale no-JS, axe, Lighthouse, console, social card e viewport mobili | `pnpm check`, 15 test e2e e QA 320/360/390 | verde; workflow bloccato |
 
 Limitare ogni nuova riga a una frase breve. I dettagli appartengono al codice, ai test o al report finale.

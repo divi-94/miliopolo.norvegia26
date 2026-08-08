@@ -14,6 +14,8 @@ const {
 const pathname = Astro.url.pathname;
 const isHome = pathname === pathWithBase();
 const isCuriosities = pathname.startsWith(pathWithBase('curiosita/'));
+const canonicalUrl = new URL(pathname, Astro.site ?? Astro.url.origin);
+const socialImageUrl = new URL(pathWithBase('norvegia-2026-social.png'), Astro.site ?? Astro.url.origin);
 ---
 
 <!doctype html>
@@ -22,6 +24,14 @@ const isCuriosities = pathname.startsWith(pathWithBase('curiosita/'));
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="it_IT" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={socialImageUrl} />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="theme-color" content="#082f49" />
     <link rel="icon" href={pathWithBase('app-icon.svg')} type="image/svg+xml" />
     <link rel="manifest" href={pathWithBase('manifest.webmanifest')} />
