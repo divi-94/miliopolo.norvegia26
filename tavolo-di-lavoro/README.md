@@ -2,7 +2,7 @@
 
 Questa cartella contiene i ragionamenti ancora in corso, organizzati per giorno o area geografica.
 Non è il documento finale condiviso.
-
+ 
 ## Metodo
 
 Ogni tavolo distingue:
