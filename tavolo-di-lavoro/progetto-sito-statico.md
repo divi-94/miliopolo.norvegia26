@@ -37,6 +37,21 @@ Ogni pagina dovrebbe poter contenere:
 - piani B con una condizione di attivazione chiara;
 - note pratiche e decisioni ancora aperte.
 
+## Alert operativi
+
+Il sito deve poter mostrare avvisi ad alta priorità attivati da una data, da una condizione ancora irrisolta o da un dato inserito sul posto. Un alert dovrebbe avere almeno: titolo breve, gravità, finestra temporale, condizione, azione richiesta, stato e link operativo.
+
+### Alert già individuato - Trolltunga e Mercedes Vito
+
+- **Quando mostrarlo:** dal ritiro del veicolo fino alla conferma del parcheggio per Trolltunga; massima evidenza il 16 e la mattina del 17/18.
+- **Condizione:** modello, classificazione o dimensioni del Mercedes Vito non ancora registrati, oppure parcheggio non ancora confermato.
+- **Messaggio:** “Verificare sul contratto/libretto lunghezza, altezza e classificazione del Vito. La strada P1-P2 ha limite di 5,2 m e indicazioni restrittive per i minivan; P3 ha limite di 2 m e l'operatore dichiara i minivan non ammessi.”
+- **Azione:** inserire modello, lunghezza e altezza; selezionare scenario P1, P2 o eventuale P3 confermato per iscritto; mostrare quindi sveglia, parcheggio, navette prenotate e ultima corsa utile del giorno scelto.
+- **Fallback automatico:** se la compatibilità non è confermata, attivare **P1 + bus 06:05 + navetta P2-P3**.
+- **Differenza per data:** il 17 l'ultima corsa P2-P1 è alle 19:15; il 18 è alle 18:00. L'alert deve cambiare automaticamente il termine operativo quando Trolltunga viene spostata per meteo.
+- **Stato attuale:** aperto; da risolvere al ritiro del veicolo.
+- **Link:** [parcheggi Trolltunga](https://www.trolltunga.com/en/parking-and-transport/parking), [orari P1-P2](https://www.trolltunga-shuttle.com/route-info/), [navetta P2-P3](https://www.trolltunganorway.com/shuttle-bus-p2-p3-skjeggedal-magelitopp/).
+
 ## Aggiornamento da telefono
 
 Idea iniziale: contenuti mantenuti in file semplici nel repository e modificabili dall'interfaccia mobile di GitHub. Un commit o push aggiorna il sito tramite il normale flusso di pubblicazione di GitHub Pages.
