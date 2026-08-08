@@ -63,3 +63,18 @@ test('abilita la modalità editor senza esporre credenziali', async ({ page }) =
   await page.getByRole('button', { name: 'Disattiva modalità editor' }).click();
   await expect(page.getByText('Modalità editor non attiva')).toBeVisible();
 });
+
+test('riapre una giornata dalla cache quando è offline', async ({ page, context }) => {
+  await page.goto('./');
+  await page.evaluate(() => navigator.serviceWorker.ready);
+  if (!await page.evaluate(() => Boolean(navigator.serviceWorker.controller))) {
+    await page.reload();
+    await page.waitForFunction(() => Boolean(navigator.serviceWorker.controller));
+  }
+  await context.setOffline(true);
+  await page.evaluate(() => window.dispatchEvent(new Event('offline')));
+  await expect(page.getByText(/Sei offline/)).toBeVisible();
+  await page.goto('./giorni/2026-08-17/');
+  await expect(page.getByRole('heading', { name: 'Trolltunga', level: 1 })).toBeVisible();
+  await context.setOffline(false);
+});

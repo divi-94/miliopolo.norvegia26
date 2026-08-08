@@ -99,6 +99,10 @@ p { color: var(--muted); line-height: 1.55; }
 .build-meta div { display: grid; grid-template-columns: 7rem 1fr; gap: .7rem; border-bottom: 1px solid var(--line); padding-block: .55rem; }
 .build-meta dt { color: var(--muted); font-size: .75rem; font-weight: 850; text-transform: uppercase; }
 .build-meta dd { margin: 0; overflow-wrap: anywhere; }
+.app-status { position: fixed; z-index: 12; right: .65rem; bottom: calc(4.7rem + var(--safe-bottom)); left: .65rem; display: grid; gap: .4rem; pointer-events: none; }
+.app-status span, .app-status button { min-height: 42px; align-items: center; justify-content: center; border: 1px solid #fbbf24; border-radius: .6rem; padding: .55rem .7rem; background: #fef3c7; color: #713f12; box-shadow: 0 .5rem 1.4rem rgba(8,47,73,.18); font: inherit; font-size: .78rem; font-weight: 850; text-align: center; pointer-events: auto; }
+.app-status span:not([hidden]), .app-status button:not([hidden]) { display: flex; }
+.app-status button { cursor: pointer; }
 .curiosity-index { max-width: 52rem; margin-inline: auto; padding-block: 1rem; }
 .curiosity-index > .lead { max-width: 38rem; }
 .curiosity-filters { display: grid; gap: .65rem; margin: 1.4rem 0 .5rem; border: 1px solid var(--line); border-radius: .9rem; padding: .85rem; background: #fff; }
@@ -125,5 +129,5 @@ p { color: var(--muted); line-height: 1.55; }
 .bottom-nav a { min-height: 44px; display: grid; place-items: center; border-radius: .55rem; font-size: .83rem; font-weight: 800; text-decoration: none; }
 .bottom-nav a[aria-current="page"] { background: var(--ice-100); color: var(--fjord-950); }
 @media (min-width: 40rem) { .curiosity-filters { grid-template-columns: 1fr 1fr; } .curiosity-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-@media (min-width: 48rem) { main { padding-block: 2.5rem 4rem; } .trip-board { grid-template-columns: 1fr minmax(15rem, .45fr); } .day-list { grid-template-columns: repeat(2, minmax(0, 1fr)); } .bottom-nav { width: 24rem; right: 1rem; bottom: 1rem; left: auto; border: 0; border-radius: .8rem; box-shadow: 0 .7rem 2rem rgba(8,47,73,.25); } }
+@media (min-width: 48rem) { main { padding-block: 2.5rem 4rem; } .trip-board { grid-template-columns: 1fr minmax(15rem, .45fr); } .day-list { grid-template-columns: repeat(2, minmax(0, 1fr)); } .bottom-nav { width: 24rem; right: 1rem; bottom: 1rem; left: auto; border: 0; border-radius: .8rem; box-shadow: 0 .7rem 2rem rgba(8,47,73,.25); } .app-status { right: 1rem; bottom: 6rem; left: auto; width: 24rem; } }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; } }

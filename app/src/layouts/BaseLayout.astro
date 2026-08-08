@@ -23,6 +23,8 @@ const isCuriosities = pathname.startsWith(pathWithBase('curiosita/'));
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <meta name="theme-color" content="#082f49" />
+    <link rel="icon" href={pathWithBase('app-icon.svg')} type="image/svg+xml" />
+    <link rel="manifest" href={pathWithBase('manifest.webmanifest')} />
     <title>{title}</title>
   </head>
   <body>
@@ -37,6 +39,10 @@ const isCuriosities = pathname.startsWith(pathWithBase('curiosita/'));
     <main id="contenuto">
       <slot />
     </main>
+    <aside class="app-status" aria-live="polite">
+      <span data-offline-status hidden>Sei offline · contenuti salvati disponibili</span>
+      <button type="button" data-app-update hidden>Aggiornamento disponibile · ricarica</button>
+    </aside>
     <nav class="bottom-nav" aria-label="Navigazione principale">
       <a href={pathWithBase()} aria-current={isHome ? 'page' : undefined}>Viaggio</a>
       <a data-today-link href={pathWithBase('giorni/2026-08-09/')}>Oggi</a>
@@ -88,6 +94,43 @@ const isCuriosities = pathname.startsWith(pathWithBase('curiosita/'));
         button.addEventListener('click', () => {
           try { localStorage.removeItem(editorKey); } catch { /* modalità corrente comunque disattivata */ }
           renderEditorMode(false);
+        });
+      }
+
+      const offlineStatus = document.querySelector<HTMLElement>('[data-offline-status]');
+      function renderConnectivity(online = navigator.onLine) {
+        if (offlineStatus) offlineStatus.hidden = online;
+      }
+      renderConnectivity();
+      window.addEventListener('online', () => renderConnectivity(true));
+      window.addEventListener('offline', () => renderConnectivity(false));
+
+      const updateButton = document.querySelector<HTMLButtonElement>('[data-app-update]');
+      function offerUpdate(worker: ServiceWorker | null) {
+        if (!worker || !updateButton) return;
+        updateButton.hidden = false;
+        updateButton.onclick = () => worker.postMessage('SKIP_WAITING');
+      }
+
+      if ('serviceWorker' in navigator) {
+        const hadController = Boolean(navigator.serviceWorker.controller);
+        const swUrl = `${base}sw.js`;
+        navigator.serviceWorker.register(swUrl, { scope: base }).then((registration) => {
+          offerUpdate(registration.waiting);
+          registration.addEventListener('updatefound', () => {
+            const worker = registration.installing;
+            worker?.addEventListener('statechange', () => {
+              if (worker.state === 'installed' && navigator.serviceWorker.controller) offerUpdate(worker);
+            });
+          });
+        }).catch(() => {
+          // L'app statica resta pienamente leggibile se la registrazione non è disponibile.
+        });
+        let refreshing = false;
+        navigator.serviceWorker.addEventListener('controllerchange', () => {
+          if (!hadController || refreshing) return;
+          refreshing = true;
+          window.location.reload();
         });
       }
     </script>

@@ -63,10 +63,10 @@ Questa è la roadmap persistente. Spunta un elemento solo dopo avere eseguito il
 
 ## P6 - PWA e offline
 
-- [ ] Creare manifest e icone locali.
-- [ ] Implementare caching dei contenuti editoriali e degli asset versionati.
-- [ ] Implementare stato offline e aggiornamento disponibile.
-- [ ] Verificare manifest/service worker sotto il base path.
+- [x] Creare manifest e icone locali.
+- [x] Implementare caching dei contenuti editoriali e degli asset versionati.
+- [x] Implementare stato offline e aggiornamento disponibile.
+- [x] Verificare manifest/service worker sotto il base path.
 
 **Gate:** contenuti essenziali riapribili offline dopo la prima visita e aggiornamento non bloccante.
 

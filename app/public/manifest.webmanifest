@@ -1,0 +1,19 @@
+{
+  "name": "Norvegia 2026",
+  "short_name": "Norvegia",
+  "description": "Programma operativo del viaggio in Norvegia dal 9 al 23 agosto 2026.",
+  "lang": "it",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f8fafc",
+  "theme_color": "#082f49",
+  "icons": [
+    {
+      "src": "./app-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

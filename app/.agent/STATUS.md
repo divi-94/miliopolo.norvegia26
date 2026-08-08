@@ -2,12 +2,12 @@
 
 ```yaml
 project_status: in_progress
-active_phase: P6
-last_completed_item: "P5 - Editing da telefono"
-next_action: "Rendere l'app installabile e i contenuti essenziali disponibili offline"
+active_phase: P7
+last_completed_item: "P6 - PWA e offline"
+next_action: "Aggiungere meteo Open-Meteo con cache e fallback non bloccanti"
 last_green_checks:
   - "pnpm check (2026-08-08)"
-  - "pnpm test:e2e (6 test, 2026-08-08)"
+  - "pnpm test:e2e (7 test, incluso offline, 2026-08-08)"
 current_blocker: null
 last_updated: "2026-08-08"
 ```
@@ -32,5 +32,6 @@ last_updated: "2026-08-08"
 | 4 | Dettagli giorno, checklist, 74 pagine luogo e azioni esterne | `pnpm check`, 93 pagine e 4 test e2e | verde |
 | 5 | Inventario integrale di 51 curiosità, indice filtrabile e relazioni | `pnpm check`, 159 pagine, 5 test e2e e QA 320/390 | verde |
 | 6 | Modalità editor persistente, URL GitHub e metadati di build | `pnpm check`, 10 test unitari, 6 test e2e e QA 360 | verde |
+| 7 | PWA base-aware, 159 contenuti precache, stato offline e aggiornamenti | `pnpm check`, 7 test e2e incluso offline e verifica endpoint | verde |
 
 Limitare ogni nuova riga a una frase breve. I dettagli appartengono al codice, ai test o al report finale.
