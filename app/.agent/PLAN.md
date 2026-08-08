@@ -82,11 +82,11 @@ Questa è la roadmap persistente. Spunta un elemento solo dopo avere eseguito il
 
 ## P8 - CI, QA e consegna
 
-- [ ] Creare workflow GitHub Pages con test prima del deploy e concurrency.
+- [x] Creare workflow GitHub Pages con test prima del deploy e concurrency.
 - [x] Completare Playwright per home, giorno, luogo, curiosità, date simulate e no-JS.
 - [x] Verificare 320, 360 e 390 px senza scroll orizzontale.
 - [x] Eseguire controllo accessibilità, performance, link e console.
 - [x] Autorivedere tutto il diff rispetto alla specifica.
-- [ ] Compilare `FINAL_REPORT.md` e marcare il progetto completo.
+- [x] Compilare `FINAL_REPORT.md` e marcare il progetto completo.
 
 **Gate finale:** `pnpm check` e `pnpm test:e2e` verdi, QA visuale documentata e tutti i criteri di accettazione soddisfatti.

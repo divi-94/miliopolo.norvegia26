@@ -1,15 +1,16 @@
 # Stato del lavoro
 
 ```yaml
-project_status: blocked
+project_status: complete
 active_phase: P8
-last_completed_item: "P8 - QA finale (workflow escluso)"
-next_action: "Aggiungere il workflow Pages dopo autorizzazione esplicita"
+last_completed_item: "P8 - CI, QA e consegna"
+next_action: "Integrare i commit locali su main e attivare Pages quando autorizzato"
 last_green_checks:
-  - "pnpm check (15 giornate, 89 luoghi, 51 curiosità, 13 test, 159 pagine e link, 2026-08-08)"
-  - "pnpm test:e2e (15 test inclusi no-JS, offline, axe e Lighthouse, 2026-08-08)"
+  - "pnpm check (15 giornate, 89 luoghi, 51 curiosità, 13 test, 159 pagine e link, 2026-08-08 17:27)"
+  - "pnpm test:e2e (15 test inclusi no-JS, offline, axe e Lighthouse, 2026-08-08 17:27)"
   - "QA visuale browser a 320, 360 e 390 px (2026-08-08)"
-current_blocker: "Il workflow richiesto abilita un deploy automatico Pages, ma manca l'autorizzazione esplicita a predisporre tale scrittura esterna"
+  - "Workflow Pages validato localmente: trigger, permessi, gate, artifact, dependency e concurrency (2026-08-08)"
+current_blocker: null
 last_updated: "2026-08-08"
 ```
 
@@ -36,5 +37,6 @@ last_updated: "2026-08-08"
 | 7 | PWA base-aware, 159 contenuti precache, stato offline e aggiornamenti | `pnpm check`, 7 test e2e incluso offline e verifica endpoint | verde |
 | 8 | Meteo Open-Meteo per 11 punti, cache, fasce orarie e fallback | `pnpm check`, 13 test unitari, 8 test e2e e QA API reale 360 | verde |
 | 9 | QA finale no-JS, axe, Lighthouse, console, social card e viewport mobili | `pnpm check`, 15 test e2e e QA 320/360/390 | verde; workflow bloccato |
+| 10 | Workflow Pages autorizzato, report e consegna completati | YAML validato, `pnpm check`, 15 test e2e e diff finale | verde |
 
 Limitare ogni nuova riga a una frase breve. I dettagli appartengono al codice, ai test o al report finale.
