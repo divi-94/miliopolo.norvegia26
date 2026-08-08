@@ -70,6 +70,7 @@ describe('meteo', () => {
     const url = new URL(forecastUrl([{ name: 'Galdhøpiggen', latitude: 61.6364721, longitude: 8.3124426, elevationM: 2469 }], true));
     expect(url.origin).toBe('https://api.open-meteo.com');
     expect(url.searchParams.get('timezone')).toBe('Europe/Oslo');
+    expect(url.searchParams.get('past_days')).toBe('15');
     expect(url.searchParams.get('forecast_days')).toBe('16');
     expect(url.searchParams.get('elevation')).toBe('2469');
     expect(url.searchParams.has('apikey')).toBe(false);

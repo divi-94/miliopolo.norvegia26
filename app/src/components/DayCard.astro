@@ -13,6 +13,9 @@ const dateLabel = new Intl.DateTimeFormat('it-IT', {
 const openTasks = countOpenTasks(body ?? '');
 const drive = drivingLevel(data.drivingMinutes);
 const hike = hikeLevel(data.hike);
+const driveSymbols = { zero: '🛵', poca: '🚗', media: '🚗', molta: '🚌' } as const;
+const hikeSymbols = { leggera: '👠', media: '👟', impegnativa: '🥾', variabile: '↕️' } as const;
+const statusSymbols = { confermato: '✅', aperto: '○', 'da-verificare': '⚠️', problema: '⛔' } as const;
 const weatherPlace = data.weatherPrimary ? getPlace(data.weatherPrimary) : undefined;
 const hikeDetails = [
   data.hike?.durationHours ? `${data.hike.durationHours}h` : null,
@@ -31,20 +34,20 @@ const hikeDetails = [
     <span class="badges" aria-label="Indicatori della giornata">
       {drive && data.drivingMinutes !== null && (
         <span class={`badge badge--drive badge--${drive}`} aria-label={`Guida ${drive}: ${formatDuration(data.drivingMinutes)}`}>
-          <span aria-hidden="true">●</span> Auto {formatDuration(data.drivingMinutes)}
+          <span aria-hidden="true">{driveSymbols[drive]}</span> Auto {formatDuration(data.drivingMinutes)}
         </span>
       )}
       {hike && (
         <span class={`badge badge--hike badge--${hike}`} aria-label={`Trekking ${hike}${hikeDetails ? `: ${hikeDetails}` : ''}`}>
-          <span aria-hidden="true">▲</span> {hikeDetails || hike}
+          <span aria-hidden="true">{hikeSymbols[hike]}</span> {hikeDetails || hike}
         </span>
       )}
       <span class={`badge badge--status badge--${data.status}`} aria-label={`Stato: ${data.status}`}>
-        <span aria-hidden="true">◆</span> {data.status}
+        <span aria-hidden="true">{statusSymbols[data.status]}</span> {data.status}
       </span>
       {openTasks > 0 && (
         <span class="badge badge--tasks" aria-label={`${openTasks} attività da chiudere`}>
-          <span aria-hidden="true">□</span> {openTasks} da chiudere
+          <span aria-hidden="true">📋</span> {openTasks} da chiudere
         </span>
       )}
       {weatherPlace?.coordinates && (

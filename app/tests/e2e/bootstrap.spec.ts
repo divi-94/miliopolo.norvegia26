@@ -39,7 +39,21 @@ test('rende disponibile la pagina iniziale', async ({ page }) => {
   await expect(page.locator('[data-temporal="today"]')).toHaveAttribute('data-date', '2026-08-17');
   await expect(page.locator('[data-today-label]')).toHaveText('Giorno 9 di 15');
   await expect(page.locator('[data-today-link]').first()).toHaveAttribute('href', /giorni\/2026-08-17\/$/);
+  await expect(page.locator('.badge--weather:visible')).toHaveCount(15);
+  await expect(page.locator('.badge--weather')).toHaveText(Array(15).fill('🌦 11–18 °C · pioggia 70%'));
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
+});
+
+test('usa simboli immediati per guida, escursioni, stato e todo', async ({ page }) => {
+  await page.goto('./?date=2026-08-17');
+  await expect(page.locator('[data-date="2026-08-10"] .badge--drive span')).toHaveText('🚌');
+  await expect(page.locator('[data-date="2026-08-09"] .badge--drive span')).toHaveText('🚗');
+  await expect(page.locator('[data-date="2026-08-23"] .badge--drive span')).toHaveText('🛵');
+  await expect(page.locator('[data-date="2026-08-17"] .badge--hike span')).toHaveText('🥾');
+  await expect(page.locator('[data-date="2026-08-15"] .badge--hike span')).toHaveText('👟');
+  await expect(page.locator('[data-date="2026-08-16"] .badge--hike span')).toHaveText('👠');
+  await expect(page.locator('[data-date="2026-08-17"] .badge--status span')).toHaveText('⚠️');
+  await expect(page.locator('[data-date="2026-08-17"] .badge--tasks span')).toHaveText('📋');
 });
 
 test('gestisce prima e dopo il viaggio', async ({ page }) => {

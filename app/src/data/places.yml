@@ -4,6 +4,9 @@
 - slug: oslo
   name: Oslo
   area: Oslo
+  coordinates:
+    latitude: 59.9133301
+    longitude: 10.7389701
 - slug: vigelandsparken
   name: Vigelandsparken
   area: Oslo
@@ -29,6 +32,9 @@
 - slug: bessheim
   name: Bessheim Fjellstue
   area: Jotunheimen
+  coordinates:
+    latitude: 61.5146226
+    longitude: 8.8529721
 - slug: gjende
   name: Gjende
   area: Jotunheimen
@@ -271,6 +277,9 @@
 - slug: bergen
   name: Bergen
   area: Vestland
+  coordinates:
+    latitude: 60.3943055
+    longitude: 5.3259192
 - slug: bryggen
   name: Bryggen
   area: Bergen

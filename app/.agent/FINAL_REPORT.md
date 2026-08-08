@@ -23,7 +23,7 @@
 | Comando o controllo | Esito | Note |
 |---|---|---|
 | `pnpm check` | verde | 15 giornate, 89 luoghi, 51 curiosità, typecheck senza diagnostiche, 13 test unitari, build di 159 pagine e link interni validi. |
-| `pnpm test:e2e` | verde | 15 test Chromium: home, date simulate, giorno, luogo, curiosità, editor, no-JS, offline, errore meteo, axe, console e Lighthouse. |
+| `pnpm test:e2e` | verde | 16 test Chromium: home con meteo sulle 15 date, simboli, date simulate, giorno, luogo, curiosità, editor, no-JS, offline, errore meteo, axe, console e Lighthouse. |
 | QA mobile 320/360/390 px | verde | Ispezione reale nel browser e test automatico senza overflow sulle rotte rappresentative. |
 | Accessibilità e performance | verde | Nessuna violazione axe WCAG A/AA nelle pagine campione; soglie Lighthouse mobile Performance ≥90, Accessibility ≥95 e Best Practices ≥95 superate. |
 | Offline/PWA | verde | Una giornata visitata è stata riaperta offline; manifest, service worker e scope verificati sotto il base path. |

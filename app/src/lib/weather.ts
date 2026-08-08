@@ -80,6 +80,7 @@ export function forecastUrl(points: WeatherPoint[], detailed: boolean): string {
     ].join(','));
   }
   url.searchParams.set('timezone', 'Europe/Oslo');
+  url.searchParams.set('past_days', '15');
   url.searchParams.set('forecast_days', '16');
   return url.toString();
 }

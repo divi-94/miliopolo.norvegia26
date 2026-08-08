@@ -6,8 +6,9 @@ active_phase: P8
 last_completed_item: "P8 - CI, QA e consegna"
 next_action: "Integrare i commit locali su main e attivare Pages quando autorizzato"
 last_green_checks:
-  - "pnpm check (15 giornate, 89 luoghi, 51 curiosità, 13 test, 159 pagine e link, 2026-08-08 17:27)"
-  - "pnpm test:e2e (15 test inclusi no-JS, offline, axe e Lighthouse, 2026-08-08 17:27)"
+  - "pnpm check con Node 22 (15 giornate, 89 luoghi, 51 curiosità, 13 test, 159 pagine e link, 2026-08-08 18:05)"
+  - "pnpm test:e2e (16 test inclusi 15 meteo home, simboli, no-JS, offline, axe e Lighthouse, 2026-08-08 18:05)"
+  - "Open-Meteo reale: 15 risposte su 15 con tutte le date 2026-08-09–2026-08-23 (2026-08-08 18:06)"
   - "QA visuale browser a 320, 360 e 390 px (2026-08-08)"
   - "Workflow Pages validato localmente: trigger, permessi, gate, artifact, dependency e concurrency (2026-08-08)"
   - "pnpm install --frozen-lockfile --force e pnpm check con allowBuilds/esbuild (2026-08-08 17:44)"
@@ -40,5 +41,6 @@ last_updated: "2026-08-08"
 | 9 | QA finale no-JS, axe, Lighthouse, console, social card e viewport mobili | `pnpm check`, 15 test e2e e QA 320/360/390 | verde; workflow bloccato |
 | 10 | Workflow Pages autorizzato, report e consegna completati | YAML validato, `pnpm check`, 15 test e2e e diff finale | verde |
 | 11 | Allowlist script migrata da `onlyBuiltDependencies` a `allowBuilds` per pnpm 11 | installazione forzata da lockfile e `pnpm check` | verde |
+| 12 | Meteo esteso alle 15 giornate e badge sostituiti con simboli semantici accessibili | `pnpm check`, 16 test e2e, API reale 15/15 e diff finale | verde |
 
 Limitare ogni nuova riga a una frase breve. I dettagli appartengono al codice, ai test o al report finale.

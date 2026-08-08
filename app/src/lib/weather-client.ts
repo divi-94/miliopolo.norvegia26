@@ -1,5 +1,4 @@
 import { forecastForDate, forecastUrl, hourlyForDate, weatherCondition, type ForecastResponse, type WeatherPoint } from './weather';
-import { osloDate, targetDay, TRIP_DATES, validSimulatedDate } from './trip';
 
 const CACHE_TTL = 30 * 60 * 1000;
 const CACHE_PREFIX = 'norvegia-weather-v1:';
@@ -120,14 +119,7 @@ export async function loadWeatherWidgets(): Promise<void> {
   const all = [...document.querySelectorAll<HTMLElement>('[data-weather-point]')];
   if (!all.length) return;
   const detail = all.filter((element) => element.dataset.weatherMode === 'detail');
-  let widgets = detail;
-  if (!detail.length) {
-    const params = new URLSearchParams(window.location.search);
-    const current = validSimulatedDate(params.get('date')) ?? osloDate();
-    const start = TRIP_DATES.indexOf(targetDay(current));
-    const dates = new Set(TRIP_DATES.slice(start, start + 3));
-    widgets = all.filter((element) => dates.has(element.dataset.weatherDate ?? ''));
-  }
+  const widgets = detail.length ? detail : all;
   if (!widgets.length) return;
   for (const element of widgets) element.hidden = false;
   const points = widgets.map(pointFrom);
