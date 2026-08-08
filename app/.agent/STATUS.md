@@ -10,6 +10,7 @@ last_green_checks:
   - "pnpm test:e2e (15 test inclusi no-JS, offline, axe e Lighthouse, 2026-08-08 17:27)"
   - "QA visuale browser a 320, 360 e 390 px (2026-08-08)"
   - "Workflow Pages validato localmente: trigger, permessi, gate, artifact, dependency e concurrency (2026-08-08)"
+  - "pnpm install --frozen-lockfile --force e pnpm check con allowBuilds/esbuild (2026-08-08 17:44)"
 current_blocker: null
 last_updated: "2026-08-08"
 ```
@@ -38,5 +39,6 @@ last_updated: "2026-08-08"
 | 8 | Meteo Open-Meteo per 11 punti, cache, fasce orarie e fallback | `pnpm check`, 13 test unitari, 8 test e2e e QA API reale 360 | verde |
 | 9 | QA finale no-JS, axe, Lighthouse, console, social card e viewport mobili | `pnpm check`, 15 test e2e e QA 320/360/390 | verde; workflow bloccato |
 | 10 | Workflow Pages autorizzato, report e consegna completati | YAML validato, `pnpm check`, 15 test e2e e diff finale | verde |
+| 11 | Allowlist script migrata da `onlyBuiltDependencies` a `allowBuilds` per pnpm 11 | installazione forzata da lockfile e `pnpm check` | verde |
 
 Limitare ogni nuova riga a una frase breve. I dettagli appartengono al codice, ai test o al report finale.
