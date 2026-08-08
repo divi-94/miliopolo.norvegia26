@@ -2,9 +2,9 @@
 
 ```yaml
 project_status: in_progress
-active_phase: P1
-last_completed_item: "P0 - Bootstrap e fondamenta"
-next_action: "Migrare e validare le 15 giornate dal documento finale"
+active_phase: P2
+last_completed_item: "P1 - Migrazione delle 15 giornate"
+next_action: "Implementare home, badge e navigazione temporale con test"
 last_green_checks:
   - "pnpm check (2026-08-08)"
 current_blocker: null
@@ -26,5 +26,6 @@ last_updated: "2026-08-08"
 |---|---|---|---|
 | 0 | Workspace autonomo predisposto | struttura e istruzioni revisionate | ready |
 | 1 | Astro statico, schemi, validatore, test e layout base | `pnpm check` | verde |
+| 2 | Importate 15 giornate e 74 luoghi senza codici sensibili | `pnpm check`, controllo privacy | verde |
 
 Limitare ogni nuova riga a una frase breve. I dettagli appartengono al codice, ai test o al report finale.

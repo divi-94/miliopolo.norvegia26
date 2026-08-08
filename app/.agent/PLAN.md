@@ -14,11 +14,11 @@ Questa è la roadmap persistente. Spunta un elemento solo dopo avere eseguito il
 
 ## P1 - Migrazione delle 15 giornate
 
-- [ ] Importare una giornata campione e validarne la struttura.
-- [ ] Migrare tutte le date dal 9 al 23 agosto dal documento finale.
-- [ ] Separare Bergen in 21 e 22 agosto senza duplicazioni incoerenti.
-- [ ] Rimuovere codici di prenotazione e dati sensibili.
-- [ ] Verificare fedeltà al documento finale e assenza di contenuti dai tavoli superati.
+- [x] Importare una giornata campione e validarne la struttura.
+- [x] Migrare tutte le date dal 9 al 23 agosto dal documento finale.
+- [x] Separare Bergen in 21 e 22 agosto senza duplicazioni incoerenti.
+- [x] Rimuovere codici di prenotazione e dati sensibili.
+- [x] Verificare fedeltà al documento finale e assenza di contenuti dai tavoli superati.
 
 **Gate:** esattamente 15 date valide, nessun riferimento rotto, controllo privacy verde e `pnpm check` verde.
 
