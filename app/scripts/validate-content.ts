@@ -5,9 +5,15 @@ import { z } from 'astro/zod';
 
 const isoDate = z.string().regex(/^2026-08-(0[9]|1\d|2[0-3])$/);
 const slug = z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/);
-const daySchema = z.looseObject({ dayNumber: z.number().int().min(1).max(15), date: isoDate, places: z.array(slug) });
+const daySchema = z.looseObject({ dayNumber: z.number().int().min(1).max(15), date: isoDate, places: z.array(slug), weatherPrimary: slug.optional() });
 const curiositySchema = z.looseObject({ slug, days: z.array(isoDate).min(1), places: z.array(slug).min(1) });
-const placeSchema = z.object({ slug, name: z.string().min(1), area: z.string().min(1) });
+const placeSchema = z.object({
+  slug,
+  name: z.string().min(1),
+  area: z.string().min(1),
+  coordinates: z.object({ latitude: z.number(), longitude: z.number() }).optional(),
+  elevationM: z.number().optional(),
+});
 
 function markdownFiles(directory: string): string[] {
   if (!existsSync(directory)) return [];
@@ -59,6 +65,10 @@ const dates = new Set(days.map(({ data }) => data.date));
 const placeSlugs = new Set(places.map(({ slug }) => slug));
 for (const { path, data } of days) {
   for (const place of data.places) if (!placeSlugs.has(place)) throw new Error(`${path}: luogo inesistente ${place}`);
+  if (data.weatherPrimary) {
+    const weatherPlace = places.find(({ slug }) => slug === data.weatherPrimary);
+    if (!weatherPlace?.coordinates) throw new Error(`${path}: punto meteo senza coordinate ${data.weatherPrimary}`);
+  }
 }
 for (const { path, data } of curiosities) {
   for (const date of data.days) if (!dates.has(date)) throw new Error(`${path}: giornata inesistente ${date}`);

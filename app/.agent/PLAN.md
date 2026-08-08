@@ -72,11 +72,11 @@ Questa è la roadmap persistente. Spunta un elemento solo dopo avere eseguito il
 
 ## P7 - Meteo
 
-- [ ] Definire punti meteo verificati e punto primario per giornata pertinente.
-- [ ] Implementare client Open-Meteo, mapping codici e attribuzione.
-- [ ] Implementare home oggi+2, dettaglio, cache e timestamp.
-- [ ] Gestire fuori finestra, offline, errore API e dati vecchi.
-- [ ] Inserire disclaimer e link ufficiali per escursioni sensibili.
+- [x] Definire punti meteo verificati e punto primario per giornata pertinente.
+- [x] Implementare client Open-Meteo, mapping codici e attribuzione.
+- [x] Implementare home oggi+2, dettaglio, cache e timestamp.
+- [x] Gestire fuori finestra, offline, errore API e dati vecchi.
+- [x] Inserire disclaimer e link ufficiali per escursioni sensibili.
 
 **Gate:** test unitari del mapping, errori di rete gestiti e nessun blocco del contenuto statico.
 

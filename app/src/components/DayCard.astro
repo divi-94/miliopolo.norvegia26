@@ -2,6 +2,7 @@
 import type { CollectionEntry } from 'astro:content';
 import { countOpenTasks, drivingLevel, formatDuration, hikeLevel } from '@/lib/trip';
 import { pathWithBase } from '@/lib/paths';
+import { getPlace } from '@/lib/places';
 
 interface Props { day: CollectionEntry<'days'>; }
 const { day } = Astro.props;
@@ -12,6 +13,7 @@ const dateLabel = new Intl.DateTimeFormat('it-IT', {
 const openTasks = countOpenTasks(body ?? '');
 const drive = drivingLevel(data.drivingMinutes);
 const hike = hikeLevel(data.hike);
+const weatherPlace = data.weatherPrimary ? getPlace(data.weatherPrimary) : undefined;
 const hikeDetails = [
   data.hike?.durationHours ? `${data.hike.durationHours}h` : null,
   data.hike?.distanceKm ? `${data.hike.distanceKm} km` : null,
@@ -44,6 +46,19 @@ const hikeDetails = [
         <span class="badge badge--tasks" aria-label={`${openTasks} attività da chiudere`}>
           <span aria-hidden="true">□</span> {openTasks} da chiudere
         </span>
+      )}
+      {weatherPlace?.coordinates && (
+        <span
+          class="badge badge--weather"
+          data-weather-point
+          data-weather-mode="compact"
+          data-weather-date={data.date}
+          data-weather-name={weatherPlace.name}
+          data-latitude={weatherPlace.coordinates.latitude}
+          data-longitude={weatherPlace.coordinates.longitude}
+          data-elevation={weatherPlace.elevationM}
+          hidden
+        >Meteo in caricamento…</span>
       )}
     </span>
     <span class="day-card__open" aria-hidden="true">Apri <span>→</span></span>

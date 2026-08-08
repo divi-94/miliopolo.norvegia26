@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { readingMinutes } from '../src/lib/curiosities';
 import { dayEditorUrl } from '../src/lib/editor';
+import { forecastForDate, forecastUrl, weatherCondition } from '../src/lib/weather';
 import {
   countOpenTasks,
   dayProgress,
@@ -53,6 +54,38 @@ describe('tempo di lettura', () => {
 describe('editing da telefono', () => {
   it('punta al file giornaliero esatto sul branch main', () => {
     expect(dayEditorUrl('2026-08-17')).toBe('https://github.com/divi-94/miliopolo.norvegia26/edit/main/app/src/content/days/2026-08-17.md');
+  });
+});
+
+describe('meteo', () => {
+  it('mappa i codici WMO e gestisce quelli sconosciuti', () => {
+    expect(weatherCondition(0).label).toBe('Sereno');
+    expect(weatherCondition(63).label).toBe('Pioggia');
+    expect(weatherCondition(75).label).toBe('Neve intensa');
+    expect(weatherCondition(95).label).toBe('Temporale');
+    expect(weatherCondition(999).label).toBe('Condizioni variabili');
+  });
+
+  it('costruisce una richiesta senza chiavi e nel fuso di Oslo', () => {
+    const url = new URL(forecastUrl([{ name: 'Galdhøpiggen', latitude: 61.6364721, longitude: 8.3124426, elevationM: 2469 }], true));
+    expect(url.origin).toBe('https://api.open-meteo.com');
+    expect(url.searchParams.get('timezone')).toBe('Europe/Oslo');
+    expect(url.searchParams.get('forecast_days')).toBe('16');
+    expect(url.searchParams.get('elevation')).toBe('2469');
+    expect(url.searchParams.has('apikey')).toBe(false);
+    expect(url.searchParams.get('hourly')).toContain('wind_gusts_10m');
+  });
+
+  it('trova la previsione per data senza dipendere dalla posizione nell’array', () => {
+    const daily = {
+      time: ['2026-08-16', '2026-08-17'], weather_code: [2, 61],
+      temperature_2m_min: [8, 7], temperature_2m_max: [15, 13],
+      precipitation_probability_max: [20, 70], precipitation_sum: [0, 4],
+      wind_speed_10m_max: [12, 18], wind_gusts_10m_max: [20, 30],
+      sunrise: ['2026-08-16T05:30', '2026-08-17T05:33'], sunset: ['2026-08-16T21:20', '2026-08-17T21:17'],
+    };
+    expect(forecastForDate({ daily }, '2026-08-17')?.code).toBe(61);
+    expect(forecastForDate({ daily }, '2026-08-18')).toBeNull();
   });
 });
 

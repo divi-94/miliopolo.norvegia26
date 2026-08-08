@@ -26,3 +26,8 @@ Registrare soltanto decisioni durevoli non già ovvie dalla specifica. Ogni voce
 
 **Motivo:** il progetto è piccolo e non giustifica coordinamento multi-agent o worktree paralleli; si evita la sovrapposizione di modifiche.
 
+## D-005 - Punti meteo fissi verificati
+
+**Decisione:** le coordinate delle undici destinazioni meteo sono state verificate il 2026-08-08 con OpenStreetMap Nominatim e restano dati editoriali versionati in `places.yml`.
+
+**Motivo:** il meteo deve descrivere la destinazione del giorno, non la posizione del telefono; punti fissi rendono la richiesta riproducibile e autorivedibile.

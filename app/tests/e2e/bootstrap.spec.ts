@@ -1,5 +1,37 @@
 import { expect, test } from '@playwright/test';
 
+test.beforeEach(async ({ page }) => {
+  await page.route('https://api.open-meteo.com/**', async (route) => {
+    const url = new URL(route.request().url());
+    const count = url.searchParams.get('latitude')?.split(',').length ?? 1;
+    const dates = Array.from({ length: 16 }, (_, index) => `2026-08-${String(index + 9).padStart(2, '0')}`);
+    const hours = dates.flatMap((date) => Array.from({ length: 24 }, (_, hour) => `${date}T${String(hour).padStart(2, '0')}:00`));
+    const one = {
+      daily: {
+        time: dates,
+        weather_code: dates.map(() => 61),
+        temperature_2m_min: dates.map(() => 11),
+        temperature_2m_max: dates.map(() => 18),
+        precipitation_probability_max: dates.map(() => 70),
+        precipitation_sum: dates.map(() => 4.2),
+        wind_speed_10m_max: dates.map(() => 18),
+        wind_gusts_10m_max: dates.map(() => 32),
+        sunrise: dates.map((date) => `${date}T05:30`),
+        sunset: dates.map((date) => `${date}T21:20`),
+      },
+      hourly: {
+        time: hours,
+        temperature_2m: hours.map(() => 14),
+        precipitation_probability: hours.map(() => 60),
+        weather_code: hours.map(() => 61),
+        wind_speed_10m: hours.map(() => 16),
+        wind_gusts_10m: hours.map(() => 28),
+      },
+    };
+    await route.fulfill({ json: count === 1 ? one : Array.from({ length: count }, () => one) });
+  });
+});
+
 test('rende disponibile la pagina iniziale', async ({ page }) => {
   await page.goto('./?date=2026-08-17');
   await expect(page.getByRole('heading', { name: 'Il viaggio, a colpo d’occhio' })).toBeVisible();
@@ -28,6 +60,9 @@ test('mostra dettaglio operativo e navigazione fra giornate', async ({ page }) =
   await expect(page.locator('input[type="checkbox"]').first()).toBeDisabled();
   await expect(page.getByRole('link', { name: 'Trolltunga', exact: true })).toHaveAttribute('href', /luoghi\/trolltunga\/$/);
   await expect(page.getByRole('navigation', { name: 'Giornate precedente e successiva' })).toBeVisible();
+  await expect(page.locator('[data-weather-content]')).toBeVisible();
+  await expect(page.locator('[data-weather-temperature]')).toHaveText('11–18 °C');
+  await expect(page.getByText(/Escursione sensibile/)).toBeVisible();
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
 });
 
@@ -77,4 +112,13 @@ test('riapre una giornata dalla cache quando è offline', async ({ page, context
   await page.goto('./giorni/2026-08-17/');
   await expect(page.getByRole('heading', { name: 'Trolltunga', level: 1 })).toBeVisible();
   await context.setOffline(false);
+});
+
+test('un errore meteo non blocca il programma statico', async ({ page }) => {
+  await page.unroute('https://api.open-meteo.com/**');
+  await page.route('https://api.open-meteo.com/**', (route) => route.abort('failed'));
+  await page.goto('./giorni/2026-08-17/');
+  await expect(page.getByRole('heading', { name: 'Trolltunga', level: 1 })).toBeVisible();
+  await expect(page.locator('[data-weather-state]')).toContainText('Meteo temporaneamente non disponibile');
+  await expect(page.getByRole('heading', { name: 'Programma' })).toBeVisible();
 });

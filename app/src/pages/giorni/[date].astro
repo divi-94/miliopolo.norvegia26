@@ -1,7 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import { getPlaces } from '@/lib/places';
+import { getPlace, getPlaces } from '@/lib/places';
 import { pathWithBase } from '@/lib/paths';
 import { countOpenTasks, drivingLevel, formatDuration, hikeLevel } from '@/lib/trip';
 import { curiosityTypeLabel } from '@/lib/curiosities';
@@ -26,6 +26,8 @@ export async function getStaticPaths() {
 
 const { day, previous, next, relatedPlaces } = Astro.props;
 const relatedCuriosities = (await getCollection('curiosities')).filter((item) => item.data.days.includes(day.data.date));
+const weatherPlace = day.data.weatherPrimary ? getPlace(day.data.weatherPrimary) : undefined;
+const safetySensitive = ['galdhopiggen', 'skala', 'trolltunga', 'skomakarnibba', 'preikestolen', 'vidden'].includes(day.data.weatherPrimary ?? '');
 const { Content } = await render(day);
 const drive = drivingLevel(day.data.drivingMinutes);
 const hike = hikeLevel(day.data.hike);
@@ -49,6 +51,38 @@ const dateLabel = new Intl.DateTimeFormat('it-IT', {
       {hike && <span><small>Trekking · {hike}</small><strong>{day.data.hike?.durationHours ? `${day.data.hike.durationHours}h` : 'Variabile'}</strong></span>}
       {openTasks > 0 && <span><small>Attività</small><strong>{openTasks} aperte</strong></span>}
     </div>
+    {weatherPlace?.coordinates && (
+      <section
+        class="weather-panel"
+        data-weather-point
+        data-weather-mode="detail"
+        data-weather-date={day.data.date}
+        data-weather-name={weatherPlace.name}
+        data-latitude={weatherPlace.coordinates.latitude}
+        data-longitude={weatherPlace.coordinates.longitude}
+        data-elevation={weatherPlace.elevationM}
+        aria-labelledby="weather-title"
+      >
+        <p class="panel__label">Previsione locale</p>
+        <h2 id="weather-title">Meteo · {weatherPlace.name}</h2>
+        <p class="weather-panel__state" data-weather-state>Caricamento non bloccante…</p>
+        <div data-weather-content hidden>
+          <div class="weather-daily" aria-label="Riepilogo meteo giornaliero">
+            <span><small>Condizioni</small><strong data-weather-condition>—</strong></span>
+            <span><small>Min · max</small><strong data-weather-temperature>—</strong></span>
+            <span><small>Pioggia</small><strong data-weather-rain>—</strong></span>
+            <span><small>Vento · raffiche</small><strong data-weather-wind>—</strong></span>
+            <span><small>Alba · tramonto</small><strong data-weather-sun>—</strong></span>
+          </div>
+          <div class="weather-hourly" data-weather-hourly aria-label="Previsione per fasce orarie"></div>
+          <p class="weather-updated" data-weather-updated></p>
+        </div>
+        <p class="weather-attribution">Dati: <a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">Open-Meteo</a>. Previsione informativa, non una valutazione di sicurezza.</p>
+        {safetySensitive && (
+          <p class="safety-callout"><strong>Escursione sensibile:</strong> prima di partire confronta la previsione con <a href="https://www.yr.no/en" target="_blank" rel="noopener noreferrer">Yr / MET Norway</a>, le indicazioni del gestore e <a href="https://ut.no/" target="_blank" rel="noopener noreferrer">UT.no</a>. Il meteo non attiva automaticamente un piano B.</p>
+        )}
+      </section>
+    )}
     <Content />
 
     {relatedPlaces.length > 0 && (
