@@ -4,11 +4,11 @@ Questa è la roadmap persistente. Spunta un elemento solo dopo avere eseguito il
 
 ## P0 - Bootstrap e fondamenta
 
-- [ ] Inizializzare Astro statico con TypeScript strict e pnpm.
-- [ ] Configurare `site`/`base` senza hardcode fragile.
-- [ ] Creare gli script `validate`, `typecheck`, `test`, `build`, `test:e2e`, `check`.
-- [ ] Definire Content Collections e validazione incrociata di date/slug.
-- [ ] Aggiungere struttura CSS mobile-first e layout base accessibile.
+- [x] Inizializzare Astro statico con TypeScript strict e pnpm.
+- [x] Configurare `site`/`base` senza hardcode fragile.
+- [x] Creare gli script `validate`, `typecheck`, `test`, `build`, `test:e2e`, `check`.
+- [x] Definire Content Collections e validazione incrociata di date/slug.
+- [x] Aggiungere struttura CSS mobile-first e layout base accessibile.
 
 **Gate:** installazione riproducibile da lockfile, pagina minima renderizzata e `pnpm check` verde.
 
@@ -90,4 +90,3 @@ Questa è la roadmap persistente. Spunta un elemento solo dopo avere eseguito il
 - [ ] Compilare `FINAL_REPORT.md` e marcare il progetto completo.
 
 **Gate finale:** `pnpm check` e `pnpm test:e2e` verdi, QA visuale documentata e tutti i criteri di accettazione soddisfatti.
-

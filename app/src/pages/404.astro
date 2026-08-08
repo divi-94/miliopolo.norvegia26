@@ -1,0 +1,13 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { pathWithBase } from '@/lib/paths';
+---
+
+<BaseLayout title="Pagina non trovata · Norvegia 2026">
+  <section class="empty-state">
+    <p class="kicker">Errore 404</p>
+    <h1>Questa tappa non esiste</h1>
+    <p>Il collegamento potrebbe essere cambiato oppure non essere disponibile offline.</p>
+    <a class="button" href={pathWithBase()}>Torna al viaggio</a>
+  </section>
+</BaseLayout>
