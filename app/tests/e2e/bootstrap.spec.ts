@@ -19,3 +19,23 @@ test('gestisce prima e dopo il viaggio', async ({ page }) => {
   await expect(page.locator('[data-trip-message]')).toContainText('Quindici giorni da ripercorrere');
   await expect(page.locator('[data-temporal="past"]')).toHaveCount(15);
 });
+
+test('mostra dettaglio operativo e navigazione fra giornate', async ({ page }) => {
+  await page.goto('./giorni/2026-08-17/');
+  await expect(page.getByRole('heading', { name: 'Trolltunga', level: 1 })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Alert' })).toBeVisible();
+  await expect(page.locator('input[type="checkbox"]')).toHaveCount(4);
+  await expect(page.locator('input[type="checkbox"]').first()).toBeDisabled();
+  await expect(page.getByRole('link', { name: 'Trolltunga', exact: true })).toHaveAttribute('href', /luoghi\/trolltunga\/$/);
+  await expect(page.getByRole('navigation', { name: 'Giornate precedente e successiva' })).toBeVisible();
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
+});
+
+test('collega un luogo alle mappe e alle giornate', async ({ page }) => {
+  await page.goto('./luoghi/trolltunga/');
+  await expect(page.getByRole('heading', { name: 'Trolltunga', level: 1 })).toBeVisible();
+  const mapLink = page.getByRole('link', { name: /Apri nelle mappe/ });
+  await expect(mapLink).toHaveAttribute('target', '_blank');
+  await expect(mapLink).toHaveAttribute('rel', /noopener/);
+  await expect(page.getByRole('link', { name: /Giorno 9 Trolltunga/ })).toBeVisible();
+});

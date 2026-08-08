@@ -1,23 +1,64 @@
 ---
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getPlaces } from '@/lib/places';
 import { pathWithBase } from '@/lib/paths';
+import { countOpenTasks, drivingLevel, formatDuration, hikeLevel } from '@/lib/trip';
 
 export async function getStaticPaths() {
-  const days = await getCollection('days');
-  return days.map((day) => ({ params: { date: day.data.date }, props: { day } }));
+  const days = (await getCollection('days')).sort((a, b) => a.data.dayNumber - b.data.dayNumber);
+  const places = getPlaces();
+  return days.map((day, index) => ({
+    params: { date: day.data.date },
+    props: {
+      day,
+      previous: days[index - 1],
+      next: days[index + 1],
+      relatedPlaces: day.data.places.flatMap((slug) => {
+        const place = places.find((candidate) => candidate.slug === slug);
+        return place ? [place] : [];
+      }),
+    },
+  }));
 }
 
-const { day } = Astro.props;
+const { day, previous, next, relatedPlaces } = Astro.props;
 const { Content } = await render(day);
+const drive = drivingLevel(day.data.drivingMinutes);
+const hike = hikeLevel(day.data.hike);
+const openTasks = countOpenTasks(day.body ?? '');
+const dateLabel = new Intl.DateTimeFormat('it-IT', {
+  timeZone: 'Europe/Oslo', weekday: 'long', day: 'numeric', month: 'long', year: 'numeric',
+}).format(new Date(`${day.data.date}T12:00:00Z`));
 ---
 
 <BaseLayout title={`${day.data.title} · Norvegia 2026`}>
   <article class="day-detail prose">
     <a class="back-link" href={pathWithBase()}>← Tutte le giornate</a>
-    <p class="kicker">Giorno {day.data.dayNumber} · {day.data.date}</p>
+    <p class="kicker">Giorno {day.data.dayNumber} · {dateLabel}</p>
     <h1>{day.data.title}</h1>
     <p class="lead">{day.data.route}</p>
+    <div class="detail-summary" aria-label="Riepilogo della giornata">
+      <span><small>Stato</small><strong>{day.data.status}</strong></span>
+      <span><small>Base</small><strong>{day.data.base ?? 'Rientro'}</strong></span>
+      {drive && day.data.drivingMinutes !== null && <span><small>Guida · {drive}</small><strong>{formatDuration(day.data.drivingMinutes)}</strong></span>}
+      {hike && <span><small>Trekking · {hike}</small><strong>{day.data.hike?.durationHours ? `${day.data.hike.durationHours}h` : 'Variabile'}</strong></span>}
+      {openTasks > 0 && <span><small>Attività</small><strong>{openTasks} aperte</strong></span>}
+    </div>
     <Content />
+
+    {relatedPlaces.length > 0 && (
+      <section class="related-section" aria-labelledby="places-title">
+        <h2 id="places-title">Luoghi della giornata</h2>
+        <div class="place-chips">
+          {relatedPlaces.map((place) => <a href={pathWithBase(`luoghi/${place.slug}/`)}>{place.name}</a>)}
+        </div>
+      </section>
+    )}
+
+    <nav class="day-pagination" aria-label="Giornate precedente e successiva">
+      {previous ? <a href={pathWithBase(`giorni/${previous.data.date}/`)}><span>← Giorno {previous.data.dayNumber}</span><strong>{previous.data.title}</strong></a> : <span />}
+      {next ? <a href={pathWithBase(`giorni/${next.data.date}/`)}><span>Giorno {next.data.dayNumber} →</span><strong>{next.data.title}</strong></a> : <span />}
+    </nav>
   </article>
 </BaseLayout>

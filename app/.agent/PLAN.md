@@ -34,11 +34,11 @@ Questa è la roadmap persistente. Spunta un elemento solo dopo avere eseguito il
 
 ## P3 - Dettaglio giorno, luoghi e azioni
 
-- [ ] Implementare dettaglio con sezioni condizionali nell'ordine richiesto.
-- [ ] Implementare checklist in sola lettura e conteggio TODO.
-- [ ] Modellare luoghi e relazioni con le giornate.
-- [ ] Rendere luoghi, mappe, siti, tracce, telefono ed email azionabili.
-- [ ] Implementare precedente/successivo e collegamenti interni base-aware.
+- [x] Implementare dettaglio con sezioni condizionali nell'ordine richiesto.
+- [x] Implementare checklist in sola lettura e conteggio TODO.
+- [x] Modellare luoghi e relazioni con le giornate.
+- [x] Rendere luoghi, mappe, siti, tracce, telefono ed email azionabili.
+- [x] Implementare precedente/successivo e collegamenti interni base-aware.
 
 **Gate:** nessun link/slug rotto, test delle rotte principali e controllo visuale mobile verde.
 

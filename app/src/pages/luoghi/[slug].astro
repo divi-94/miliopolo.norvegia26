@@ -1,0 +1,47 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getPlaces, mapUrlFor } from '@/lib/places';
+import { pathWithBase } from '@/lib/paths';
+
+export function getStaticPaths() {
+  return getPlaces().map((place) => ({ params: { slug: place.slug }, props: { place } }));
+}
+
+const { place } = Astro.props;
+const days = (await getCollection('days'))
+  .filter((day) => day.data.places.includes(place.slug))
+  .sort((a, b) => a.data.dayNumber - b.data.dayNumber);
+const curiosities = (await getCollection('curiosities')).filter((item) => item.data.places.includes(place.slug));
+---
+
+<BaseLayout title={`${place.name} · Norvegia 2026`}>
+  <article class="place-detail prose">
+    <a class="back-link" href={pathWithBase()}>← Torna al viaggio</a>
+    <p class="kicker">{place.area}</p>
+    <h1>{place.name}</h1>
+    {place.elevationM && <p class="lead">Quota · {place.elevationM.toLocaleString('it-IT')} m</p>}
+
+    <div class="action-row" aria-label="Azioni per il luogo">
+      <a class="action action--map" href={mapUrlFor(place)} target="_blank" rel="noopener noreferrer">Apri nelle mappe <span aria-hidden="true">↗</span></a>
+      {place.officialUrl && <a class="action action--web" href={place.officialUrl} target="_blank" rel="noopener noreferrer">Sito ufficiale <span aria-hidden="true">↗</span></a>}
+    </div>
+    <p class="connection-note">Le azioni esterne richiedono connessione.</p>
+
+    <section aria-labelledby="days-title">
+      <h2 id="days-title">Giornate collegate</h2>
+      <div class="linked-list">
+        {days.map((day) => <a href={pathWithBase(`giorni/${day.data.date}/`)}><span>Giorno {day.data.dayNumber}</span><strong>{day.data.title}</strong></a>)}
+      </div>
+    </section>
+
+    {curiosities.length > 0 && (
+      <section aria-labelledby="curiosities-title">
+        <h2 id="curiosities-title">Curiosità</h2>
+        <div class="linked-list">
+          {curiosities.map((item) => <a href={pathWithBase(`curiosita/${item.data.slug}/`)}><span>{item.data.type}</span><strong>{item.data.title}</strong></a>)}
+        </div>
+      </section>
+    )}
+  </article>
+</BaseLayout>
